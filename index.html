@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BR Web Standards</title>
+<style>
+/* ========================================
+   BR Web Standards — Interactive Microsite
+   Brand Revolution Design Standards
+   ======================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #000000;
+  --raisin: #221E1F;
+  --smoke: #F5F3F3;
+  --kraft: #C49A6C;
+  --aqua: #6CCA98;
+  --forest: #1a2e23;
+  --dark-forest: #375542;
+  --ease-primary: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-word: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Helvetica Neue LT Pro", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--black);
+  color: var(--smoke);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ---- NAV ---- */
+.br-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196,154,108,0.12);
+}
+.br-nav__inner {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; height: 64px; gap: 8px;
+}
+.br-nav__logo {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--kraft); margin-right: auto; white-space: nowrap;
+}
+.br-nav__links {
+  display: flex; gap: 4px; overflow-x: auto;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.br-nav__links::-webkit-scrollbar { display: none; }
+.br-nav__link {
+  padding: 6px 14px; border-radius: 100px; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,243,243,0.4);
+  background: transparent; border: 1px solid transparent; cursor: pointer;
+  transition: all 0.3s ease; white-space: nowrap; text-decoration: none;
+}
+.br-nav__link:hover { color: var(--smoke); border-color: rgba(245,243,243,0.1); }
+.br-nav__link.active { color: var(--kraft); border-color: rgba(196,154,108,0.3); background: rgba(196,154,108,0.06); }
+.br-nav__link--coming-soon { opacity: 0.5; cursor: default; position: relative; padding-right: 40px; }
+.br-nav__link--coming-soon::after {
+  content: 'SOON'; position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
+  font-size: 7px; letter-spacing: 0.08em; color: var(--aqua); background: rgba(108,202,152,0.15);
+  padding: 2px 5px; border-radius: 3px; line-height: 1;
+}
+
+/* Hamburger */
+.br-nav__hamburger {
+  display: none; width: 32px; height: 32px; align-items: center; justify-content: center;
+  cursor: pointer; flex-direction: column; gap: 5px;
+}
+.br-nav__hamburger span { width: 18px; height: 1.5px; background: var(--smoke); transition: all 0.3s ease; }
+.br-mobile-menu {
+  position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.95); backdrop-filter: blur(20px); z-index: 99;
+  padding: 24px; display: none; flex-direction: column; gap: 8px;
+}
+.br-mobile-menu.open { display: flex; }
+.br-mobile-menu .br-nav__link { display: block; padding: 14px 16px; font-size: 12px; border-radius: 8px; }
+
+/* ---- HERO ---- */
+.br-hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 120px 40px 80px; position: relative; overflow: hidden;
+}
+.br-hero__orb { position: absolute; border-radius: 50%; filter: blur(120px); -webkit-filter: blur(120px); pointer-events: none; will-change: transform; transform: translateZ(0); -webkit-backface-visibility: hidden; }
+.br-hero__orb--1 { width: 800px; height: 800px; top: -10%; left: -15%; background: radial-gradient(circle, var(--dark-forest) 0%, transparent 70%); animation: br-float-1 12s ease-in-out infinite; }
+.br-hero__orb--2 { width: 650px; height: 650px; bottom: -15%; right: -10%; background: radial-gradient(circle, rgba(196,154,108,0.15) 0%, transparent 70%); animation: br-float-2 14s ease-in-out infinite; }
+.br-hero__orb--3 { width: 500px; height: 500px; top: 30%; right: 10%; background: radial-gradient(circle, rgba(108,202,152,0.1) 0%, transparent 70%); animation: br-float-3 16s ease-in-out infinite; }
+
+@keyframes br-float-1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -20px); } }
+@keyframes br-float-2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 15px); } }
+@keyframes br-float-3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(15px, 25px); } }
+
+.br-hero__content { position: relative; z-index: 1; max-width: 880px; }
+.br-hero__eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aqua); margin-bottom: 24px; }
+.br-hero__title { font-size: clamp(34px, 4.8vw, 66px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 24px; }
+.br-hero__subtitle { font-size: clamp(15px, 1.4vw, 18px); font-weight: 400; line-height: 1.7; color: rgba(245,243,243,0.6); max-width: 540px; margin: 0 auto 20px; }
+.br-hero__wip {
+  display: inline-flex; align-items: center; gap: 12px; margin-bottom: 40px;
+  padding: 10px 24px; border-radius: 100px;
+  background: rgba(108,202,152,0.06); border: 1px solid rgba(108,202,152,0.12);
+  font-size: 13px; font-weight: 500; letter-spacing: 0.03em; color: rgba(245,243,243,0.5);
+}
+.br-hero__wip-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--aqua);
+  animation: br-pulse 2.5s ease-in-out infinite; flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(108,202,152,0.4);
+}
+.br-hero__divider { width: 64px; height: 2px; background: linear-gradient(90deg, var(--aqua), var(--kraft)); margin: 0 auto 40px; }
+.br-hero__scroll { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--kraft); cursor: pointer; text-decoration: none; transition: color 0.3s ease; }
+.br-hero__scroll:hover { color: var(--smoke); }
+.br-hero__scroll-arrow { width: 24px; height: 24px; border: 1.5px solid var(--kraft); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; animation: br-bounce 2s ease-in-out infinite; flex-shrink: 0; }
+@keyframes br-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* Stats bar */
+.br-hero__stats {
+  display: flex; justify-content: center; gap: 48px; margin-top: 56px;
+  padding-top: 32px; border-top: 1px solid rgba(245,243,243,0.06);
+}
+.br-hero__stat-num { font-size: 28px; font-weight: 700; color: var(--kraft); }
+.br-hero__stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,243,243,0.3); margin-top: 4px; }
+
+/* Voice teaser */
+.br-hero__voice-teaser {
+  display: flex; align-items: center; gap: 24px; margin-top: 48px;
+  padding: 28px 36px; border-radius: 16px; text-decoration: none;
+  background: linear-gradient(135deg, rgba(26,46,35,0.5) 0%, rgba(34,30,31,0.7) 100%);
+  border: 1px solid rgba(196,154,108,0.15);
+  transition: border-color 0.3s ease, transform 0.3s var(--ease-primary), box-shadow 0.3s ease;
+  max-width: 640px; margin-left: auto; margin-right: auto; text-align: left;
+  position: relative; overflow: hidden;
+}
+.br-hero__voice-teaser::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(108,202,152,0.03) 0%, rgba(196,154,108,0.05) 100%);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.br-hero__voice-teaser:hover { border-color: rgba(196,154,108,0.35); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.br-hero__voice-teaser:hover::before { opacity: 1; }
+.br-hero__voice-teaser-icon {
+  flex-shrink: 0; width: 56px; height: 56px; border-radius: 14px; position: relative; z-index: 1;
+  background: linear-gradient(135deg, rgba(108,202,152,0.15) 0%, rgba(196,154,108,0.15) 100%);
+  border: 1px solid rgba(108,202,152,0.12);
+  display: flex; align-items: center; justify-content: center;
+  animation: br-pulse 2.5s ease-in-out infinite;
+}
+.br-hero__voice-teaser-icon svg { width: 26px; height: 26px; }
+.br-hero__voice-teaser-body { flex: 1; position: relative; z-index: 1; }
+.br-hero__voice-teaser-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+}
+.br-hero__voice-teaser-title {
+  font-size: 16px; font-weight: 700; color: var(--smoke); letter-spacing: -0.01em;
+}
+.br-hero__voice-teaser-badge {
+  padding: 3px 10px; border-radius: 100px; font-size: 8px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--raisin);
+  background: var(--aqua);
+  animation: br-pulse 2.5s ease-in-out infinite;
+}
+.br-hero__voice-teaser-text { font-size: 13px; line-height: 1.5; color: rgba(245,243,243,0.45); }
+.br-hero__voice-teaser-arrow {
+  font-size: 22px; color: var(--kraft); opacity: 0.3; transition: opacity 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0; position: relative; z-index: 1;
+}
+.br-hero__voice-teaser:hover .br-hero__voice-teaser-arrow { opacity: 1; transform: translateX(6px); }
+
+/* ---- SECTIONS ---- */
+.br-section { padding: 80px 40px; max-width: 1400px; margin: 0 auto; position: relative; }
+.br-section__header { margin-bottom: 56px; }
+.br-section__number { font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aqua); margin-bottom: 12px; }
+.br-section__title { font-size: 38px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+.br-section__desc { font-size: 16px; line-height: 1.7; color: rgba(245,243,243,0.6); max-width: 540px; }
+.br-section__divider { height: 2px; background: linear-gradient(90deg, var(--aqua), var(--kraft)); margin: 80px 0; opacity: 0.3; }
+
+/* Sub-section headers */
+.br-sub-header { margin: 56px 0 24px; }
+.br-sub-header__title { font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 8px; }
+.br-sub-header__desc { font-size: 13px; color: rgba(245,243,243,0.4); line-height: 1.6; }
+
+/* ---- COLORS SECTION ---- */
+.br-colors__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 48px;
+}
+.br-color-card {
+  border-radius: 12px; overflow: hidden; border: 1px solid rgba(245,243,243,0.08);
+  cursor: pointer; transition: transform 0.3s var(--ease-primary), border-color 0.3s ease;
+}
+.br-color-card:hover { transform: translateY(-4px); border-color: rgba(196,154,108,0.3); }
+.br-color-card__swatch { height: 100px; position: relative; display: flex; align-items: center; justify-content: center; }
+.br-color-card__copied { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0; transition: opacity 0.3s ease; position: absolute; }
+.br-color-card__copied.show { opacity: 1; }
+.br-color-card__info { padding: 16px; background: var(--raisin); }
+.br-color-card__name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.br-color-card__hex { font-size: 12px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.4); margin-bottom: 6px; }
+.br-color-card__usage { font-size: 11px; color: rgba(245,243,243,0.3); line-height: 1.5; }
+
+/* RGBA Opacity scale */
+.br-opacity-section { margin-top: 48px; }
+.br-opacity-row { margin-bottom: 24px; }
+.br-opacity-row__label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.br-opacity-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.br-opacity-chip {
+  width: 52px; height: 52px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 600; font-family: "SF Mono", "Fira Code", monospace;
+  cursor: pointer; transition: transform 0.2s ease; border: 1px solid rgba(245,243,243,0.06);
+  position: relative;
+}
+.br-opacity-chip:hover { transform: scale(1.1); z-index: 1; }
+.br-opacity-chip__tooltip {
+  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: var(--raisin); border: 1px solid rgba(245,243,243,0.1); padding: 4px 10px;
+  border-radius: 6px; font-size: 9px; color: var(--smoke); white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+}
+.br-opacity-chip:hover .br-opacity-chip__tooltip { opacity: 1; }
+
+/* Deprecated */
+.br-deprecated { background: rgba(245,243,243,0.04); border-radius: 12px; padding: 32px; margin-top: 32px; }
+.br-deprecated__title { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #e74c3c; margin-bottom: 16px; }
+.br-deprecated__grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.br-deprecated__item {
+  display: flex; align-items: center; gap: 8px; padding: 8px 16px;
+  border-radius: 100px; background: rgba(0,0,0,0.3); border: 1px solid rgba(231,76,60,0.2);
+}
+.br-deprecated__swatch { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(245,243,243,0.1); }
+.br-deprecated__text { font-size: 11px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.5); }
+.br-deprecated__arrow { color: rgba(245,243,243,0.2); font-size: 11px; }
+.br-deprecated__replacement { font-size: 11px; font-family: "SF Mono", "Fira Code", monospace; color: var(--aqua); }
+
+/* Gradients */
+.br-gradients { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 24px; }
+.br-gradient-demo { border-radius: 12px; overflow: hidden; border: 1px solid rgba(245,243,243,0.08); }
+.br-gradient-demo__preview { height: 80px; display: flex; align-items: center; justify-content: center; }
+.br-gradient-demo__info { padding: 16px; background: var(--raisin); }
+.br-gradient-demo__name { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+.br-gradient-demo__css { font-size: 10px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.3); line-height: 1.6; margin-top: 6px; word-break: break-all; }
+.br-gradient-demo__desc { font-size: 11px; color: rgba(245,243,243,0.3); }
+
+/* Shadows */
+.br-shadow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.br-shadow-demo { background: var(--raisin); border-radius: 12px; padding: 32px; text-align: center; }
+.br-shadow-demo__name { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,243,243,0.4); margin-top: 12px; }
+.br-shadow-demo__value { font-size: 9px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.2); margin-top: 4px; }
+.br-shadow-demo__box { width: 100px; height: 60px; border-radius: 8px; background: var(--forest); margin: 0 auto; }
+
+/* ---- TYPOGRAPHY ---- */
+.br-font-stack { background: rgba(245,243,243,0.04); border-radius: 12px; padding: 32px; border: 1px solid rgba(245,243,243,0.06); margin-bottom: 48px; }
+.br-font-stack__title { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kraft); margin-bottom: 16px; }
+.br-font-stack__display {
+  font-size: 48px; font-weight: 300; color: var(--smoke); margin-bottom: 16px; line-height: 1.2;
+}
+.br-font-stack__code { font-size: 12px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.4); line-height: 1.8; }
+.br-font-stack__weights { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+.br-font-stack__weight { text-align: center; }
+.br-font-stack__weight-sample { font-size: 24px; margin-bottom: 4px; }
+.br-font-stack__weight-label { font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,243,243,0.3); }
+
+.br-type-scale { display: flex; flex-direction: column; gap: 32px; }
+.br-type-row {
+  padding: 24px 32px; border-radius: 12px; background: rgba(245,243,243,0.04);
+  border: 1px solid rgba(245,243,243,0.06); transition: border-color 0.3s ease; cursor: default;
+}
+.br-type-row:hover { border-color: rgba(196,154,108,0.2); }
+.br-type-row__sample { margin-bottom: 16px; overflow: hidden; }
+.br-type-row__meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.br-type-row__tag {
+  padding: 4px 12px; border-radius: 100px; font-size: 9px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(245,243,243,0.1);
+  color: rgba(245,243,243,0.45);
+}
+.br-type-row__tag--size { color: var(--kraft); border-color: rgba(196,154,108,0.2); }
+.br-type-row__tag--weight { color: var(--aqua); border-color: rgba(108,202,152,0.2); }
+.br-type-row__tag--ls { color: rgba(245,243,243,0.35); }
+.br-type-row__tag--lh { color: rgba(196,154,108,0.6); border-color: rgba(196,154,108,0.12); }
+.br-type-row__note { font-size: 11px; color: rgba(245,243,243,0.25); margin-top: 8px; font-style: italic; }
+
+/* ---- SPACING ---- */
+.br-spacing-demo { display: flex; flex-direction: column; gap: 32px; }
+.br-spacing-visual { background: rgba(245,243,243,0.04); border-radius: 12px; padding: 32px; border: 1px solid rgba(245,243,243,0.06); }
+.br-spacing-visual__title { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kraft); margin-bottom: 24px; }
+.br-spacing-bars { display: flex; flex-direction: column; gap: 12px; }
+.br-spacing-bar { display: flex; align-items: center; gap: 16px; }
+.br-spacing-bar__label { width: 140px; font-size: 12px; color: rgba(245,243,243,0.5); text-align: right; flex-shrink: 0; }
+.br-spacing-bar__visual { height: 28px; border-radius: 4px; background: linear-gradient(90deg, var(--aqua), var(--kraft)); opacity: 0.6; transition: opacity 0.3s ease, transform 0.3s var(--ease-primary); }
+.br-spacing-bar:hover .br-spacing-bar__visual { opacity: 1; transform: scaleY(1.2); }
+.br-spacing-bar__value { font-size: 11px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.3); white-space: nowrap; }
+
+/* Section padding table */
+.br-padding-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.br-padding-table th, .br-padding-table td {
+  padding: 12px 16px; text-align: left; font-size: 12px; border-bottom: 1px solid rgba(245,243,243,0.06);
+}
+.br-padding-table th {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(245,243,243,0.3); border-bottom: 1px solid rgba(245,243,243,0.1);
+}
+.br-padding-table td { color: rgba(245,243,243,0.5); font-family: "SF Mono", "Fira Code", monospace; }
+.br-padding-table td:first-child { font-family: inherit; color: var(--smoke); font-weight: 500; }
+.br-padding-table tr:hover td { background: rgba(245,243,243,0.02); }
+
+/* ---- ANIMATION ---- */
+.br-anim-playground { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.br-anim-card { background: rgba(245,243,243,0.04); border-radius: 12px; padding: 32px; border: 1px solid rgba(245,243,243,0.06); }
+.br-anim-card__title { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kraft); margin-bottom: 8px; }
+.br-anim-card__desc { font-size: 12px; color: rgba(245,243,243,0.4); margin-bottom: 24px; line-height: 1.5; }
+.br-anim-card__demo { min-height: 80px; display: flex; align-items: center; justify-content: center; }
+.br-anim-card__btn {
+  display: inline-block; padding: 10px 28px; border: 1px solid rgba(196,154,108,0.3); border-radius: 100px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--kraft); background: transparent; cursor: pointer; transition: all 0.3s ease; margin-top: 16px;
+}
+.br-anim-card__btn:hover { background: rgba(196,154,108,0.08); border-color: var(--kraft); }
+
+/* Easing demos */
+.br-easing-track { width: 100%; height: 4px; background: rgba(245,243,243,0.08); border-radius: 2px; position: relative; margin: 16px 0; }
+.br-easing-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--kraft); position: absolute; top: -6px; left: 0; }
+.br-easing-dot.animate { animation: br-ease-slide 1.5s forwards; }
+.br-easing-dot--primary.animate { animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+.br-easing-dot--word.animate { animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+.br-easing-dot--simple.animate { animation-timing-function: ease; }
+.br-easing-dot--shimmer.animate { animation-timing-function: ease-in-out; }
+@keyframes br-ease-slide { to { left: calc(100% - 16px); } }
+
+/* Entrance / stagger */
+.br-entrance-box {
+  width: 100%; height: 48px; background: var(--forest); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,243,243,0.6);
+  transition: opacity 0.6s var(--ease-primary), transform 0.6s var(--ease-primary);
+}
+.br-entrance-box.hidden { opacity: 0; transform: translateY(20px); }
+
+.br-stagger-items { display: flex; gap: 8px; }
+.br-stagger-item {
+  flex: 1; height: 40px; border-radius: 6px; background: linear-gradient(135deg, var(--dark-forest), var(--forest));
+  transition: opacity 0.6s var(--ease-primary), transform 0.6s var(--ease-primary);
+}
+.br-stagger-item.hidden { opacity: 0; transform: translateY(12px); }
+.br-stagger-item:nth-child(1) { transition-delay: 0.05s; }
+.br-stagger-item:nth-child(2) { transition-delay: 0.13s; }
+.br-stagger-item:nth-child(3) { transition-delay: 0.21s; }
+.br-stagger-item:nth-child(4) { transition-delay: 0.29s; }
+.br-stagger-item:nth-child(5) { transition-delay: 0.37s; }
+
+/* Word reveal */
+.br-word-reveal { display: flex; flex-wrap: wrap; gap: 6px; }
+.br-word-reveal__word {
+  font-size: 24px; font-weight: 700; letter-spacing: -0.02em;
+  opacity: 0; transform: translateY(12px); display: inline-block;
+  transition: opacity 0.5s var(--ease-word), transform 0.5s var(--ease-word);
+}
+.br-word-reveal__word.br-visible { opacity: 1; transform: translateY(0); }
+
+/* Transform demo */
+.br-transform-bars { display: flex; flex-direction: column; gap: 10px; }
+.br-transform-bar { display: flex; align-items: center; gap: 12px; }
+.br-transform-bar__label { font-size: 10px; font-family: "SF Mono", "Fira Code", monospace; color: var(--kraft); width: 36px; text-align: right; }
+.br-transform-bar__track { flex: 1; height: 28px; background: rgba(245,243,243,0.04); border-radius: 4px; position: relative; overflow: visible; }
+.br-transform-bar__fill {
+  position: absolute; left: 0; top: 0; height: 100%;
+  background: linear-gradient(90deg, var(--forest), var(--dark-forest));
+  border-radius: 4px; transition: transform 0.6s var(--ease-primary);
+  display: flex; align-items: center; padding-left: 12px;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,243,243,0.4);
+  line-height: 1; white-space: nowrap;
+}
+.br-transform-bar__usage { font-size: 10px; color: rgba(245,243,243,0.3); white-space: nowrap; }
+
+/* IO threshold demo */
+.br-threshold-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.br-threshold-card {
+  background: rgba(245,243,243,0.04); border-radius: 10px; padding: 20px; text-align: center;
+  border: 1px solid rgba(245,243,243,0.06); transition: border-color 0.3s ease;
+}
+.br-threshold-card:hover { border-color: rgba(108,202,152,0.2); }
+.br-threshold-card__value { font-size: 28px; font-weight: 700; color: var(--aqua); }
+.br-threshold-card__usage { font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+
+/* ---- COMPONENTS ---- */
+.br-comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
+.br-comp-card { background: rgba(245,243,243,0.04); border-radius: 12px; overflow: hidden; border: 1px solid rgba(245,243,243,0.06); }
+.br-comp-card__preview { padding: 40px; display: flex; align-items: center; justify-content: center; min-height: 160px; position: relative; }
+.br-comp-card__preview--dark { background: var(--raisin); }
+.br-comp-card__preview--forest { background: var(--forest); overflow: hidden; }
+.br-comp-card__preview--smoke { background: var(--smoke); }
+.br-comp-card__info { padding: 24px; border-top: 1px solid rgba(245,243,243,0.06); }
+.br-comp-card__name { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.br-comp-card__detail { font-size: 12px; color: rgba(245,243,243,0.4); line-height: 1.6; }
+.br-comp-card__spec { margin-top: 12px; font-size: 10px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.25); line-height: 1.8; }
+
+/* Live components */
+.br-live-cta {
+  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--kraft); border: 2px solid var(--kraft); padding: 16px 40px; background: transparent;
+  position: relative; overflow: hidden; cursor: pointer; text-decoration: none; transition: color 0.3s ease;
+}
+.br-live-cta::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--kraft); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.45s var(--ease-primary);
+}
+.br-live-cta:hover::before { transform: scaleX(1); }
+.br-live-cta:hover { color: var(--raisin); }
+.br-live-cta span { position: relative; z-index: 1; }
+
+/* Aqua button variant */
+.br-live-cta--aqua { color: var(--aqua); border-color: var(--aqua); }
+.br-live-cta--aqua::before { background: var(--aqua); }
+
+.br-live-pill {
+  padding: 5px 14px; border: 1px solid rgba(34,30,31,0.1); border-radius: 100px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(34,30,31,0.45); background: transparent;
+}
+.br-live-pill--dark { border-color: rgba(245,243,243,0.1); color: rgba(245,243,243,0.45); }
+.br-live-divider { height: 2px; background: linear-gradient(90deg, var(--aqua), var(--kraft)); width: 80%; }
+
+/* Aurora orbs detail */
+.br-orb-demo { position: relative; width: 100%; height: 200px; border-radius: 12px; background: var(--forest); overflow: hidden; }
+.br-orb-demo__orb { position: absolute; border-radius: 50%; filter: blur(40px); -webkit-filter: blur(40px); will-change: transform; transform: translateZ(0); -webkit-backface-visibility: hidden; }
+
+.br-mini-orb { position: absolute; border-radius: 50%; filter: blur(40px); -webkit-filter: blur(40px); will-change: transform; transform: translateZ(0); -webkit-backface-visibility: hidden; }
+
+/* Quote demo */
+.br-mini-quote { text-align: center; }
+.br-mini-quote__mark { font-size: 48px; color: var(--kraft); opacity: 0.2; line-height: 1; }
+.br-mini-quote__text { font-size: 15px; font-style: italic; color: var(--smoke); line-height: 1.6; margin: 8px 0; }
+.br-mini-quote__divider { width: 48px; height: 2px; background: linear-gradient(90deg, var(--aqua), var(--kraft)); margin: 12px auto; }
+.br-mini-quote__name { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--kraft); }
+.br-mini-quote__role { font-size: 11px; color: rgba(245,243,243,0.4); }
+
+/* Image hover */
+.br-hover-demo {
+  width: 100%; height: 120px; background: linear-gradient(135deg, var(--forest), var(--dark-forest)); border-radius: 8px;
+  transition: transform 0.5s var(--ease-primary), filter 0.5s var(--ease-primary);
+}
+.br-hover-demo:hover { transform: scale(1.04); filter: saturate(1.1) brightness(1.05); }
+
+/* Video iframe formula */
+.br-video-demo {
+  width: 100%; background: var(--raisin); border-radius: 8px; border: 1px solid rgba(245,243,243,0.08);
+  display: flex; align-items: center; justify-content: center; color: rgba(245,243,243,0.2);
+  font-size: 32px; aspect-ratio: 16/9; max-height: 120px;
+}
+
+/* ---- KRAFT RULE ---- */
+.br-kraft-example {
+  background: var(--raisin); border-radius: 12px; padding: 32px;
+  border: 1px solid rgba(245,243,243,0.06); position: relative;
+}
+.br-kraft-example--good { border-color: rgba(108,202,152,0.15); }
+.br-kraft-example--bad { border-color: rgba(231,76,60,0.15); background: #1e1416; }
+.br-kraft-example__badge {
+  position: absolute; top: -10px; left: 24px; padding: 4px 14px; border-radius: 100px;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.br-kraft-example__badge--good { background: var(--forest); color: var(--aqua); border: 1px solid rgba(108,202,152,0.2); }
+.br-kraft-example__badge--bad { background: rgba(231,76,60,0.1); color: #e74c3c; border: 1px solid rgba(231,76,60,0.2); }
+.br-kraft-example__badge--litmus { background: rgba(196,154,108,0.1); color: var(--kraft); border: 1px solid rgba(196,154,108,0.2); }
+.br-kraft-example__text { font-size: 18px; line-height: 1.6; color: var(--smoke); }
+.br-kraft-example__note { font-size: 12px; color: rgba(245,243,243,0.3); margin-top: 12px; font-style: italic; }
+
+/* Kraft interactive */
+.br-kraft-interactive {
+  background: var(--raisin); border-radius: 12px; padding: 40px;
+  border: 1px solid rgba(245,243,243,0.06); margin-top: 32px;
+}
+.br-kraft-interactive__title { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kraft); margin-bottom: 16px; }
+.br-kraft-interactive__instructions { font-size: 13px; color: rgba(245,243,243,0.5); margin-bottom: 24px; }
+.br-kraft-interactive__text { font-size: 20px; line-height: 1.8; color: var(--smoke); }
+.br-kraft-interactive__text .kraft-word {
+  cursor: pointer; transition: color 0.3s ease; border-bottom: 1px dashed rgba(245,243,243,0.15); padding-bottom: 1px;
+}
+.br-kraft-interactive__text .kraft-word:hover { border-bottom-color: rgba(196,154,108,0.3); }
+.br-kraft-interactive__text .kraft-word.active { color: var(--kraft); border-bottom-color: transparent; }
+.br-kraft-interactive__feedback {
+  margin-top: 24px; padding: 16px 20px; border-radius: 8px; font-size: 13px;
+  line-height: 1.5; min-height: 52px; transition: all 0.3s ease;
+}
+.br-kraft-interactive__feedback--good { background: rgba(108,202,152,0.08); border: 1px solid rgba(108,202,152,0.15); color: var(--aqua); }
+.br-kraft-interactive__feedback--bad { background: rgba(231,76,60,0.08); border: 1px solid rgba(231,76,60,0.15); color: #e74c3c; }
+.br-kraft-interactive__feedback--neutral { background: rgba(245,243,243,0.04); border: 1px solid rgba(245,243,243,0.06); color: rgba(245,243,243,0.4); }
+
+/* Kraft exercise selector */
+.br-kraft-exercises { display: flex; gap: 8px; margin-bottom: 24px; }
+.br-kraft-ex-btn {
+  padding: 6px 16px; border-radius: 100px; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; background: transparent;
+  border: 1px solid rgba(245,243,243,0.1); color: rgba(245,243,243,0.4); cursor: pointer; transition: all 0.3s ease;
+}
+.br-kraft-ex-btn.active { border-color: rgba(196,154,108,0.3); color: var(--kraft); background: rgba(196,154,108,0.06); }
+.br-kraft-ex-btn:hover { border-color: rgba(245,243,243,0.2); color: var(--smoke); }
+
+/* Rules */
+.br-kraft-rules { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 32px; }
+.br-kraft-rule {
+  padding: 20px 24px; background: rgba(245,243,243,0.04); border-radius: 10px;
+  border: 1px solid rgba(245,243,243,0.06); display: flex; gap: 16px; align-items: flex-start;
+}
+.br-kraft-rule__num { font-size: 20px; font-weight: 700; color: var(--kraft); opacity: 0.4; line-height: 1; flex-shrink: 0; }
+.br-kraft-rule__text { font-size: 13px; line-height: 1.6; color: rgba(245,243,243,0.6); }
+
+/* ---- RESPONSIVE ---- */
+.br-breakpoints { display: flex; flex-direction: column; gap: 24px; }
+.br-breakpoint {
+  background: rgba(245,243,243,0.04); border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(245,243,243,0.06); transition: border-color 0.3s ease;
+}
+.br-breakpoint:hover { border-color: rgba(196,154,108,0.2); }
+.br-breakpoint__header { padding: 24px 32px; display: flex; align-items: center; gap: 16px; cursor: pointer; }
+.br-breakpoint__size { font-size: 28px; font-weight: 700; color: var(--kraft); min-width: 90px; }
+.br-breakpoint__name { font-size: 14px; font-weight: 600; color: var(--smoke); }
+.br-breakpoint__query { font-size: 11px; font-family: "SF Mono", "Fira Code", monospace; color: rgba(245,243,243,0.3); margin-top: 2px; }
+.br-breakpoint__toggle {
+  margin-left: auto; width: 28px; height: 28px; border: 1px solid rgba(245,243,243,0.1); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: rgba(245,243,243,0.3); font-size: 14px; transition: all 0.3s ease;
+}
+.br-breakpoint.open .br-breakpoint__toggle { transform: rotate(45deg); border-color: rgba(196,154,108,0.3); color: var(--kraft); }
+.br-breakpoint__details { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-primary); }
+.br-breakpoint.open .br-breakpoint__details { max-height: 500px; }
+.br-breakpoint__list { padding: 0 32px 24px; display: flex; flex-direction: column; gap: 8px; }
+.br-breakpoint__item { font-size: 13px; color: rgba(245,243,243,0.5); padding-left: 16px; position: relative; }
+.br-breakpoint__item::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--aqua); opacity: 0.4; }
+.br-breakpoint__item--critical { color: #e74c3c; }
+.br-breakpoint__item--critical::before { background: #e74c3c; }
+
+/* Breakpoint viz */
+.br-bp-viz { background: rgba(245,243,243,0.04); border-radius: 12px; padding: 32px; border: 1px solid rgba(245,243,243,0.06); }
+.br-bp-viz__title { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kraft); margin-bottom: 24px; }
+.br-bp-viz__bar { width: 100%; height: 40px; background: rgba(245,243,243,0.04); border-radius: 6px; position: relative; overflow: hidden; }
+.br-bp-viz__segment { position: absolute; top: 0; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.br-bp-viz__segment--mobile { left: 0; width: 34%; background: rgba(231,76,60,0.15); color: #e74c3c; border-radius: 6px 0 0 6px; }
+.br-bp-viz__segment--tablet { left: 34%; width: 20.5%; background: rgba(196,154,108,0.15); color: var(--kraft); }
+.br-bp-viz__segment--landscape { left: 54.5%; width: 18.2%; background: rgba(108,202,152,0.12); color: var(--aqua); }
+.br-bp-viz__segment--desktop { left: 72.7%; width: 27.3%; background: rgba(245,243,243,0.06); color: rgba(245,243,243,0.4); border-radius: 0 6px 6px 0; }
+
+/* Responsive preview */
+.br-responsive-preview { margin-top: 32px; }
+.br-responsive-preview__controls { display: flex; gap: 8px; margin-bottom: 24px; }
+.br-rp-btn {
+  padding: 8px 20px; border-radius: 100px; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; background: transparent;
+  border: 1px solid rgba(245,243,243,0.1); color: rgba(245,243,243,0.4); cursor: pointer; transition: all 0.3s ease;
+}
+.br-rp-btn.active { border-color: rgba(196,154,108,0.3); color: var(--kraft); background: rgba(196,154,108,0.06); }
+.br-rp-btn:hover { border-color: rgba(245,243,243,0.2); color: var(--smoke); }
+.br-responsive-preview__frame {
+  background: var(--raisin); border-radius: 12px; padding: 32px;
+  transition: max-width 0.5s var(--ease-primary); margin: 0 auto;
+  border: 1px solid rgba(245,243,243,0.08);
+}
+.br-responsive-preview__mock-h2 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; transition: font-size 0.5s ease; }
+.br-responsive-preview__mock-body { line-height: 1.7; color: rgba(245,243,243,0.6); transition: font-size 0.5s ease; }
+.br-responsive-preview__mock-grid { display: grid; gap: 24px; margin-top: 20px; transition: all 0.5s ease; }
+.br-responsive-preview__mock-card { height: 60px; background: var(--forest); border-radius: 8px; }
+
+/* ---- CODE ---- */
+.br-code-block {
+  background: rgba(0,0,0,0.4); border-radius: 10px; padding: 24px; margin: 16px 0;
+  border: 1px solid rgba(245,243,243,0.06); overflow-x: auto;
+}
+.br-code-block code {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 13px; line-height: 1.6; color: rgba(245,243,243,0.7);
+}
+.br-code-block .kw { color: var(--aqua); }
+.br-code-block .str { color: var(--kraft); }
+.br-code-block .cmt { color: rgba(245,243,243,0.25); }
+
+/* ---- BRAND VOICE (Coming Soon) ---- */
+.br-coming-soon {
+  position: relative; overflow: hidden; border-radius: 16px;
+  background: linear-gradient(135deg, var(--raisin) 0%, var(--forest) 100%);
+  border: 1px solid rgba(196,154,108,0.12); padding: 80px 40px; text-align: center;
+}
+.br-coming-soon__orbs { position: absolute; inset: 0; pointer-events: none; }
+.br-coming-soon__orb {
+  position: absolute; border-radius: 50%; filter: blur(60px); -webkit-filter: blur(60px);
+  will-change: transform; transform: translateZ(0); -webkit-backface-visibility: hidden;
+}
+.br-coming-soon__badge {
+  display: inline-block; padding: 6px 20px; border-radius: 100px; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--aqua); background: rgba(108,202,152,0.1);
+  border: 1px solid rgba(108,202,152,0.2); margin-bottom: 24px;
+}
+.br-coming-soon__title {
+  font-size: clamp(28px, 3.5vw, 48px); font-weight: 700; line-height: 1.1;
+  letter-spacing: -0.02em; margin-bottom: 20px; position: relative; z-index: 1;
+}
+.br-coming-soon__desc {
+  font-size: clamp(14px, 1.2vw, 16px); line-height: 1.7; color: rgba(245,243,243,0.5);
+  max-width: 540px; margin: 0 auto 40px; position: relative; z-index: 1;
+}
+.br-coming-soon__preview {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px; max-width: 800px; margin: 0 auto; position: relative; z-index: 1;
+}
+.br-coming-soon__card {
+  background: rgba(0,0,0,0.3); border-radius: 10px; padding: 24px;
+  border: 1px solid rgba(245,243,243,0.06); text-align: left;
+  transition: border-color 0.3s ease;
+}
+.br-coming-soon__card:hover { border-color: rgba(196,154,108,0.2); }
+.br-coming-soon__card-icon { font-size: 20px; margin-bottom: 12px; opacity: 0.6; }
+.br-coming-soon__card-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--smoke); }
+.br-coming-soon__card-desc { font-size: 11px; color: rgba(245,243,243,0.35); line-height: 1.5; }
+
+/* Notify form */
+.br-coming-soon__form {
+  display: flex; gap: 8px; max-width: 400px; margin: 32px auto 0; position: relative; z-index: 1;
+}
+.br-coming-soon__input {
+  flex: 1; padding: 14px 20px; background: rgba(0,0,0,0.3); border: 1px solid rgba(245,243,243,0.1);
+  border-radius: 6px; color: var(--smoke); font-family: inherit; font-size: 13px; outline: none;
+  transition: border-color 0.3s ease;
+}
+.br-coming-soon__input::placeholder { color: rgba(245,243,243,0.25); }
+.br-coming-soon__input:focus { border-color: rgba(196,154,108,0.3); }
+.br-coming-soon__submit {
+  padding: 14px 28px; background: var(--kraft); border: none; border-radius: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--raisin); cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
+}
+.br-coming-soon__submit:hover { background: #d4b48a; }
+
+/* ---- EMAIL SECTION ---- */
+.br-email-preview {
+  background: var(--smoke); border-radius: 12px; padding: 32px; max-width: 600px; margin: 0 auto;
+}
+.br-email-chrome {
+  background: #fff; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.br-email-chrome__bar {
+  background: #f0eded; padding: 12px 16px; display: flex; align-items: center; gap: 8px;
+}
+.br-email-chrome__dot { width: 8px; height: 8px; border-radius: 50%; }
+.br-email-chrome__body { padding: 24px; }
+
+/* ---- PROGRESS ---- */
+.br-progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--aqua), var(--kraft)); z-index: 101; transition: width 0.1s linear; }
+
+/* Section entrance */
+@media (min-width: 769px) {
+  .br-section__header { opacity: 0; transform: translateY(20px); }
+  .br-section__header.in-v {
+    opacity: 1; transform: translateY(0);
+    transition: opacity 0.7s var(--ease-primary), transform 0.7s var(--ease-primary);
+  }
+}
+
+/* ---- RESPONSIVE LAYOUT ---- */
+@media (max-width: 1024px) {
+  .br-section__title { font-size: 32px; }
+  .br-section { padding: 56px 24px; }
+  .br-nav__inner { padding: 0 24px; }
+  .br-threshold-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .br-nav__links { display: none; }
+  .br-nav__hamburger { display: flex; }
+  .br-nav__inner { height: 56px; }
+  .br-section__title { font-size: 26px; }
+  .br-section { padding: 40px 16px; }
+  .br-hero { padding: 100px 24px 60px; min-height: auto; }
+  .br-hero__stats { gap: 24px; flex-wrap: wrap; }
+  .br-colors__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .br-comp-grid { grid-template-columns: 1fr; }
+  .br-anim-playground { grid-template-columns: 1fr; }
+  .br-kraft-rules { grid-template-columns: 1fr; }
+  .br-threshold-grid { grid-template-columns: repeat(2, 1fr); }
+  .br-shadow-grid { grid-template-columns: 1fr; }
+  .br-coming-soon__preview { grid-template-columns: 1fr; }
+  .br-coming-soon__form { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .br-hero { padding: 80px 20px 40px; }
+  .br-section { padding: 32px 14px; }
+}
+
+@keyframes br-shimmer { 0% { background-position: 100% 50%; } 100% { background-position: -50% 50%; } }
+@keyframes br-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+</style>
+</head>
+<body>
+
+<div class="br-progress" id="brProgress"></div>
+
+<!-- Nav -->
+<nav class="br-nav">
+  <div class="br-nav__inner">
+    <div class="br-nav__logo">BR Web Standards</div>
+    <div class="br-nav__links" id="brNavLinks">
+      <a href="#colors" class="br-nav__link">Colors</a>
+      <a href="#typography" class="br-nav__link">Type</a>
+      <a href="#spacing" class="br-nav__link">Spacing</a>
+      <a href="#animation" class="br-nav__link">Animation</a>
+      <a href="#components" class="br-nav__link">Components</a>
+      <a href="#kraft-rule" class="br-nav__link">Kraft Rule</a>
+      <a href="#responsive" class="br-nav__link">Responsive</a>
+      <a href="#email" class="br-nav__link">Email</a>
+      <a href="#code" class="br-nav__link">Code</a>
+      <a href="#brand-voice" class="br-nav__link br-nav__link--coming-soon">Voice</a>
+    </div>
+    <div class="br-nav__hamburger" id="brHamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="br-mobile-menu" id="brMobileMenu">
+  <a href="#colors" class="br-nav__link" onclick="closeMobileMenu()">Colors</a>
+  <a href="#typography" class="br-nav__link" onclick="closeMobileMenu()">Typography</a>
+  <a href="#spacing" class="br-nav__link" onclick="closeMobileMenu()">Spacing</a>
+  <a href="#animation" class="br-nav__link" onclick="closeMobileMenu()">Animation</a>
+  <a href="#components" class="br-nav__link" onclick="closeMobileMenu()">Components</a>
+  <a href="#kraft-rule" class="br-nav__link" onclick="closeMobileMenu()">Kraft Rule</a>
+  <a href="#responsive" class="br-nav__link" onclick="closeMobileMenu()">Responsive</a>
+  <a href="#email" class="br-nav__link" onclick="closeMobileMenu()">Email</a>
+  <a href="#code" class="br-nav__link" onclick="closeMobileMenu()">Code</a>
+  <a href="#brand-voice" class="br-nav__link" onclick="closeMobileMenu()" style="opacity: 0.5;">Brand Voice (Coming Soon)</a>
+</div>
+
+<!-- Hero -->
+<section class="br-hero" id="hero">
+  <div class="br-hero__orb br-hero__orb--1"></div>
+  <div class="br-hero__orb br-hero__orb--2"></div>
+  <div class="br-hero__orb br-hero__orb--3"></div>
+  <div class="br-hero__content">
+    <div class="br-hero__eyebrow">Brand Revolution</div>
+    <h1 class="br-hero__title">Web <span style="color: var(--kraft)">Standards</span></h1>
+    <p class="br-hero__subtitle">The complete, interactive reference for every color, type scale, spacing value, animation, and component pattern used across BR properties.</p>
+    <div class="br-hero__wip">
+      <span class="br-hero__wip-dot"></span>
+      Living document — continuously updated as the system evolves
+    </div>
+    <div class="br-hero__divider"></div>
+    <a href="#colors" class="br-hero__scroll">
+      Explore the system <span class="br-hero__scroll-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v7M2 5.5L5 8.5L8 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <div class="br-hero__stats">
+      <div><div class="br-hero__stat-num">7</div><div class="br-hero__stat-label">Core Colors</div></div>
+      <div><div class="br-hero__stat-num">9</div><div class="br-hero__stat-label">Type Scales</div></div>
+      <div><div class="br-hero__stat-num">4</div><div class="br-hero__stat-label">Easing Curves</div></div>
+      <div><div class="br-hero__stat-num">3</div><div class="br-hero__stat-label">Breakpoints</div></div>
+    </div>
+
+    <!-- Brand Voice teaser -->
+    <a href="#brand-voice" class="br-hero__voice-teaser">
+      <div class="br-hero__voice-teaser-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--aqua);">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+      </div>
+      <div class="br-hero__voice-teaser-body">
+        <div class="br-hero__voice-teaser-top">
+          <span class="br-hero__voice-teaser-title">Brand Voice</span>
+          <span class="br-hero__voice-teaser-badge">Coming Soon</span>
+        </div>
+        <div class="br-hero__voice-teaser-text">How BR speaks. Tone, cadence, headline formulas, and the language patterns behind every piece of copy.</div>
+      </div>
+      <div class="br-hero__voice-teaser-arrow">&rarr;</div>
+    </a>
+  </div>
+</section>
+
+<!-- ======================== 1. COLORS ======================== -->
+<section class="br-section" id="colors">
+  <div class="br-section__header">
+    <div class="br-section__number">01</div>
+    <h2 class="br-section__title">Brand <span style="color: var(--kraft)">Colors</span></h2>
+    <p class="br-section__desc">Seven core colors define every BR surface. Click any swatch to copy its hex value.</p>
+  </div>
+
+  <div class="br-colors__grid" id="brColorGrid"></div>
+
+  <!-- RGBA Opacity Scales -->
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">RGBA Opacity Scales</div>
+    <div class="br-sub-header__desc">Hover chips to see the full rgba() value. Click to copy.</div>
+  </div>
+  <div class="br-opacity-section" id="brOpacityScales"></div>
+
+  <!-- Gradients -->
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">Gradients</div>
+  </div>
+  <div class="br-gradients">
+    <div class="br-gradient-demo">
+      <div class="br-gradient-demo__preview" style="background: linear-gradient(120deg, #C49A6C 0%, #C49A6C 40%, #d4b48a 48%, #e0c4a0 52%, #C49A6C 60%, #C49A6C 100%); background-size: 250% 100%; animation: br-shimmer 3s ease-in-out infinite;"></div>
+      <div class="br-gradient-demo__info">
+        <div class="br-gradient-demo__name">Kraft Shimmer</div>
+        <div class="br-gradient-demo__desc">Animated button shimmer</div>
+        <div class="br-gradient-demo__css">background-size: 250% 100%;<br>Derived: #d4b48a, #e0c4a0</div>
+      </div>
+    </div>
+    <div class="br-gradient-demo">
+      <div class="br-gradient-demo__preview" style="background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.20) 50%, rgba(0,0,0,0.05) 100%), linear-gradient(135deg, var(--forest), var(--dark-forest));"></div>
+      <div class="br-gradient-demo__info">
+        <div class="br-gradient-demo__name">Hero Overlay</div>
+        <div class="br-gradient-demo__desc">Bottom-to-top scrim for text over media</div>
+        <div class="br-gradient-demo__css">0.55 → 0.20 → 0.05</div>
+      </div>
+    </div>
+    <div class="br-gradient-demo">
+      <div class="br-gradient-demo__preview" style="display: flex; align-items: center; justify-content: center; background: var(--raisin);">
+        <div style="height: 3px; width: 85%; background: linear-gradient(90deg, #6CCA98, #C49A6C); box-shadow: 0 0 12px rgba(108,202,152,0.3), 0 0 12px rgba(196,154,108,0.3);"></div>
+      </div>
+      <div class="br-gradient-demo__info">
+        <div class="br-gradient-demo__name">Divider</div>
+        <div class="br-gradient-demo__desc">Always 2px height, aqua → kraft</div>
+      </div>
+    </div>
+    <div class="br-gradient-demo">
+      <div class="br-gradient-demo__preview" style="display: flex; align-items: center; justify-content: center; background: var(--raisin);">
+        <div style="width: 6px; height: 64px; background: linear-gradient(to bottom, transparent, #C49A6C, transparent); box-shadow: 0 0 16px rgba(196,154,108,0.25); border-radius: 3px;"></div>
+      </div>
+      <div class="br-gradient-demo__info">
+        <div class="br-gradient-demo__name">Scroll Drop</div>
+        <div class="br-gradient-demo__desc">Vertical kraft fade, scroll indicators</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shadows -->
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">Shadows</div>
+  </div>
+  <div class="br-shadow-grid">
+    <div class="br-shadow-demo">
+      <div class="br-shadow-demo__box" style="box-shadow: 0 8px 40px rgba(0,0,0,0.15);"></div>
+      <div class="br-shadow-demo__name">Media</div>
+      <div class="br-shadow-demo__value">0 8px 40px rgba(0,0,0,0.15)</div>
+    </div>
+    <div class="br-shadow-demo">
+      <div class="br-shadow-demo__box" style="box-shadow: 0 24px 80px rgba(0,0,0,0.8);"></div>
+      <div class="br-shadow-demo__name">Lightbox</div>
+      <div class="br-shadow-demo__value">0 24px 80px rgba(0,0,0,0.8)</div>
+    </div>
+  </div>
+
+  <!-- Deprecated -->
+  <div class="br-deprecated">
+    <div class="br-deprecated__title">Deprecated — Never Use</div>
+    <div class="br-deprecated__grid" id="brDeprecated"></div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 2. TYPOGRAPHY ======================== -->
+<section class="br-section" id="typography">
+  <div class="br-section__header">
+    <div class="br-section__number">02</div>
+    <h2 class="br-section__title">Typography</h2>
+    <p class="br-section__desc">One font family, precisely calibrated. Every element has an exact size, weight, and spacing.</p>
+  </div>
+
+  <!-- Font stack display -->
+  <div class="br-font-stack">
+    <div class="br-font-stack__title">Font Stack</div>
+    <div class="br-font-stack__display">Helvetica Neue LT Pro</div>
+    <div class="br-font-stack__code">
+      font-family: "Helvetica Neue LT Pro", "Helvetica Neue", Arial, sans-serif;<br>
+      -webkit-font-smoothing: antialiased;<br>
+      <span style="color: var(--aqua);">// Both lines required on every block.</span>
+    </div>
+    <div class="br-font-stack__weights">
+      <div class="br-font-stack__weight">
+        <div class="br-font-stack__weight-sample" style="font-weight: 400;">Aa</div>
+        <div class="br-font-stack__weight-label">400 Regular</div>
+      </div>
+      <div class="br-font-stack__weight">
+        <div class="br-font-stack__weight-sample" style="font-weight: 600;">Aa</div>
+        <div class="br-font-stack__weight-label">600 Semi</div>
+      </div>
+      <div class="br-font-stack__weight">
+        <div class="br-font-stack__weight-sample" style="font-weight: 700;">Aa</div>
+        <div class="br-font-stack__weight-label">700 Bold</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">Type Scale</div>
+    <div class="br-sub-header__desc">Every text element at its exact spec. Tags show size, weight, line-height, and letter-spacing.</div>
+  </div>
+
+  <div class="br-type-scale" id="brTypeScale"></div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 3. SPACING ======================== -->
+<section class="br-section" id="spacing">
+  <div class="br-section__header">
+    <div class="br-section__number">03</div>
+    <h2 class="br-section__title">Spacing</h2>
+    <p class="br-section__desc">Consistent spacing creates rhythm. Hover bars to highlight. All values are exact — no approximations.</p>
+  </div>
+
+  <!-- Section padding table -->
+  <div class="br-spacing-visual">
+    <div class="br-spacing-visual__title">Section Padding</div>
+    <table class="br-padding-table">
+      <thead>
+        <tr><th>Context</th><th>Desktop</th><th>1024px</th><th>768px</th><th>480px</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Hero content</td><td>0 40px</td><td>0 32px</td><td>0 24px</td><td>0 20px</td></tr>
+        <tr><td>Overview / Split</td><td>80px 40px</td><td>56px 24px</td><td>40px 16px</td><td>—</td></tr>
+        <tr><td>Quote / Testimonial</td><td>56px 40px</td><td>—</td><td>40px 16px</td><td>32px 14px</td></tr>
+        <tr><td>CTA</td><td>72px 40px</td><td>—</td><td>40px 16px</td><td>—</td></tr>
+        <tr><td>Next block</td><td>48px 40px</td><td>40px 24px</td><td>36px 16px</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="br-spacing-demo" style="margin-top: 32px;">
+    <div class="br-spacing-visual">
+      <div class="br-spacing-visual__title">Max-Widths</div>
+      <div class="br-spacing-bars" id="brMaxWidths"></div>
+    </div>
+    <div class="br-spacing-visual">
+      <div class="br-spacing-visual__title">Gap Scale</div>
+      <div class="br-spacing-bars" id="brGaps"></div>
+    </div>
+
+    <!-- Grid Ratios -->
+    <div class="br-spacing-visual">
+      <div class="br-spacing-visual__title">Grid Ratios</div>
+      <table class="br-padding-table">
+        <thead>
+          <tr><th>Layout</th><th>Columns</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Split (copy + media)</td><td>1fr 1fr</td><td style="font-family: inherit;">Equal columns, align-items: center</td></tr>
+          <tr><td>Split flipped</td><td>1fr 1fr + direction: rtl</td><td style="font-family: inherit;">Player left, copy right. Reset children to direction: ltr</td></tr>
+          <tr><td>Single column (mobile)</td><td>1fr</td><td style="font-family: inherit;">All grids collapse at 768px</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 4. ANIMATION ======================== -->
+<section class="br-section" id="animation">
+  <div class="br-section__header">
+    <div class="br-section__number">04</div>
+    <h2 class="br-section__title">Animation</h2>
+    <p class="br-section__desc">All animations are <strong style="color:#e74c3c">desktop-only</strong>. All entrance states must be inside <code style="color: var(--aqua);">@media (min-width: 769px)</code>. Mobile shows everything immediately.</p>
+  </div>
+
+  <div class="br-anim-playground">
+    <!-- Easing curves (4 now) -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Easing Curves</div>
+      <div class="br-anim-card__desc">Four curves, each for a specific purpose.</div>
+      <div class="br-anim-card__demo">
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+            <span style="font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kraft); width: 56px;">Primary</span>
+            <div class="br-easing-track"><div class="br-easing-dot br-easing-dot--primary" id="easeDot1"></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+            <span style="font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--aqua); width: 56px;">Word</span>
+            <div class="br-easing-track"><div class="br-easing-dot br-easing-dot--word" id="easeDot2" style="background: var(--aqua);"></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+            <span style="font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(245,243,243,0.4); width: 56px;">Simple</span>
+            <div class="br-easing-track"><div class="br-easing-dot br-easing-dot--simple" id="easeDot3" style="background: rgba(245,243,243,0.4);"></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark-forest); width: 56px;">Float</span>
+            <div class="br-easing-track"><div class="br-easing-dot br-easing-dot--shimmer" id="easeDot4" style="background: var(--dark-forest);"></div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 12px; font-size: 10px; font-family: monospace; color: rgba(245,243,243,0.2); line-height: 1.8;">
+        Primary: cubic-bezier(0.22, 1, 0.36, 1)<br>
+        Word: cubic-bezier(0.16, 1, 0.3, 1)<br>
+        Simple: ease<br>
+        Float: ease-in-out
+      </div>
+      <button class="br-anim-card__btn" onclick="playEasing()">Play All</button>
+    </div>
+
+    <!-- Entrance -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Entrance Animation</div>
+      <div class="br-anim-card__desc">translateY(20px) + opacity. 0.6s primary easing.</div>
+      <div class="br-anim-card__demo">
+        <div class="br-entrance-box" id="entranceBox">Element enters view</div>
+      </div>
+      <button class="br-anim-card__btn" onclick="playEntrance()">Replay</button>
+    </div>
+
+    <!-- Stagger -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Stagger Timing</div>
+      <div class="br-anim-card__desc">Base: 0.05s. Increment: 0.08s per item. Fire once via IntersectionObserver.</div>
+      <div class="br-anim-card__demo">
+        <div class="br-stagger-items" id="staggerItems">
+          <div class="br-stagger-item"></div>
+          <div class="br-stagger-item"></div>
+          <div class="br-stagger-item"></div>
+          <div class="br-stagger-item"></div>
+          <div class="br-stagger-item"></div>
+        </div>
+      </div>
+      <button class="br-anim-card__btn" onclick="playStagger()">Replay</button>
+    </div>
+
+    <!-- Word Reveal -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Word Reveal</div>
+      <div class="br-anim-card__desc">500ms initial delay, 150ms per word. Uses word easing curve.</div>
+      <div class="br-anim-card__demo">
+        <div class="br-word-reveal" id="wordReveal">
+          <span class="br-word-reveal__word">We</span>
+          <span class="br-word-reveal__word">build</span>
+          <span class="br-word-reveal__word">brands</span>
+          <span class="br-word-reveal__word">that</span>
+          <span class="br-word-reveal__word" style="color: var(--kraft);">move</span>
+          <span class="br-word-reveal__word">people.</span>
+        </div>
+      </div>
+      <button class="br-anim-card__btn" onclick="playWordReveal()">Replay</button>
+    </div>
+
+    <!-- Duration reference -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Duration Reference</div>
+      <div class="br-anim-card__desc">Standardized durations for every transition type.</div>
+      <div class="br-anim-card__demo" style="flex-direction: column; align-items: stretch;">
+        <div style="display: flex; flex-direction: column; gap: 8px; width: 100;" id="brDurations"></div>
+      </div>
+    </div>
+
+    <!-- Entrance transforms -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Entrance Transforms</div>
+      <div class="br-anim-card__desc">translateY values by element importance.</div>
+      <div class="br-anim-card__demo" style="flex-direction: column; align-items: stretch;">
+        <div class="br-transform-bars" id="brTransforms"></div>
+      </div>
+    </div>
+
+    <!-- IO Thresholds -->
+    <div class="br-anim-card" style="grid-column: span 2;">
+      <div class="br-anim-card__title">IntersectionObserver Thresholds</div>
+      <div class="br-anim-card__desc">When elements trigger — all fire once and unobserve.</div>
+      <div class="br-threshold-grid">
+        <div class="br-threshold-card">
+          <div class="br-threshold-card__value">0.15</div>
+          <div class="br-threshold-card__usage">Grids</div>
+        </div>
+        <div class="br-threshold-card">
+          <div class="br-threshold-card__value">0.20</div>
+          <div class="br-threshold-card__usage">Next blocks</div>
+        </div>
+        <div class="br-threshold-card">
+          <div class="br-threshold-card__value">0.25</div>
+          <div class="br-threshold-card__usage">Standard</div>
+        </div>
+        <div class="br-threshold-card">
+          <div class="br-threshold-card__value">0.35</div>
+          <div class="br-threshold-card__usage">Metrics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 5. COMPONENTS ======================== -->
+<section class="br-section" id="components">
+  <div class="br-section__header">
+    <div class="br-section__number">05</div>
+    <h2 class="br-section__title">Components</h2>
+    <p class="br-section__desc">Live, interactive versions of every standard component. Hover and interact to see exact behavior.</p>
+  </div>
+
+  <div class="br-comp-grid">
+    <!-- Kraft Button -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--dark">
+        <a href="javascript:void(0)" class="br-live-cta"><span>Explore Our Work</span></a>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Kraft Button (Primary CTA)</div>
+        <div class="br-comp-card__detail">2px kraft border, scaleX fill on hover, 0.45s primary easing. Text in &lt;span&gt; with z-index: 1.</div>
+        <div class="br-comp-card__spec">10px / 700 / 0.14em / uppercase<br>padding: 16px 40px<br>transform-origin: left</div>
+      </div>
+    </div>
+
+    <!-- Pills light -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--smoke" style="background: var(--smoke); gap: 8px; flex-wrap: wrap;">
+        <span class="br-live-pill">Strategy</span>
+        <span class="br-live-pill">Branding</span>
+        <span class="br-live-pill">Digital</span>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Pill / Tag (Light BG)</div>
+        <div class="br-comp-card__detail">100px radius, 1px border at raisin 10%, raisin 45% text.</div>
+        <div class="br-comp-card__spec">10px / 600 / 0.1em / uppercase<br>padding: 5px 14px</div>
+      </div>
+    </div>
+
+    <!-- Pills dark -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--dark" style="gap: 8px; flex-wrap: wrap;">
+        <span class="br-live-pill br-live-pill--dark">Strategy</span>
+        <span class="br-live-pill br-live-pill--dark">Branding</span>
+        <span class="br-live-pill br-live-pill--dark">Digital</span>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Pill / Tag (Dark BG)</div>
+        <div class="br-comp-card__detail">Same structure. Smoke-based border/text colors.</div>
+        <div class="br-comp-card__spec">border: 1px solid rgba(245,243,243,0.1)<br>color: rgba(245,243,243,0.45)</div>
+      </div>
+    </div>
+
+    <!-- Gradient divider -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--dark">
+        <div class="br-live-divider"></div>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Gradient Divider</div>
+        <div class="br-comp-card__detail">2px height, aqua → kraft. Entrance: scaleX(0) → scaleX(1), origin left.</div>
+      </div>
+    </div>
+
+    <!-- Image hover -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--dark" style="padding: 24px;">
+        <div class="br-hover-demo"></div>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Image Hover</div>
+        <div class="br-comp-card__detail">scale(1.04) + saturate(1.1) brightness(1.05). Hover to preview.</div>
+        <div class="br-comp-card__spec">transition: 0.5s primary easing<br>Optional dark scrim fade for overlaid text</div>
+      </div>
+    </div>
+
+    <!-- Quote block -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--forest" style="flex-direction: column;">
+        <div class="br-mini-orb" style="width: 250px; height: 250px; top: -60px; left: -60px; background: radial-gradient(circle, rgba(55,85,66,0.6) 0%, transparent 70%); filter: blur(60px);"></div>
+        <div class="br-mini-orb" style="width: 180px; height: 180px; bottom: -40px; right: -40px; background: radial-gradient(circle, rgba(196,154,108,0.12) 0%, transparent 70%); filter: blur(60px);"></div>
+        <div class="br-mini-quote">
+          <div class="br-mini-quote__mark">&ldquo;</div>
+          <p class="br-mini-quote__text">They transformed our digital presence.</p>
+          <div class="br-mini-quote__divider"></div>
+          <div class="br-mini-quote__name">Jane Smith</div>
+          <div class="br-mini-quote__role">VP Marketing, Acme Co</div>
+        </div>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Quote Block</div>
+        <div class="br-comp-card__detail">Forest BG, 3 aurora orbs, noise SVG filter, gradient divider, kraft attribution.</div>
+        <div class="br-comp-card__spec">Quote mark: 64px, kraft, 0.2 opacity<br>Divider: 48px wide, gradient<br>Name: 14px/600/kraft | Role: 12px/400/40%</div>
+      </div>
+    </div>
+
+    <!-- Aurora orbs -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--forest" style="height: 200px;">
+        <div class="br-orb-demo__orb" style="width: 220px; height: 220px; top: -10%; left: -5%; background: radial-gradient(circle, rgba(55,85,66,0.8) 0%, transparent 70%); filter: blur(60px); position: absolute; animation: br-float-1 10s ease-in-out infinite;"></div>
+        <div class="br-orb-demo__orb" style="width: 180px; height: 180px; top: 20%; right: -5%; background: radial-gradient(circle, rgba(196,154,108,0.2) 0%, transparent 70%); filter: blur(60px); position: absolute; animation: br-float-2 13s ease-in-out infinite;"></div>
+        <div class="br-orb-demo__orb" style="width: 140px; height: 140px; bottom: -10%; left: 25%; background: radial-gradient(circle, rgba(108,202,152,0.15) 0%, transparent 70%); filter: blur(60px); position: absolute; animation: br-float-3 16s ease-in-out infinite;"></div>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Aurora Orbs</div>
+        <div class="br-comp-card__detail">3-4 per section. Each: border-radius 50%, filter blur(80px), radial-gradient.</div>
+        <div class="br-comp-card__spec">Colors: Dark Forest, Kraft low-opacity, Aqua low-opacity<br>Animation: br-float [10-16s] ease-in-out infinite</div>
+      </div>
+    </div>
+
+    <!-- Video iframe -->
+    <div class="br-comp-card">
+      <div class="br-comp-card__preview br-comp-card__preview--dark" style="padding: 24px;">
+        <div class="br-video-demo">&#9654;</div>
+      </div>
+      <div class="br-comp-card__info">
+        <div class="br-comp-card__name">Video Iframe Formulas</div>
+        <div class="br-comp-card__detail">Two patterns: full-bleed background video and contained player with aspect-ratio.</div>
+        <div class="br-comp-card__spec"><strong style="color:var(--kraft);">Full-bleed:</strong> position: absolute; width: max(100%, 177.78vh); height: max(100%, 56.25vw); transform: translate(-50%, -50%)<br><br><strong style="color:var(--aqua);">Contained:</strong> aspect-ratio: 16/9; overflow: hidden; iframe absolute fill<br><br><span style="color:#e74c3c;">Old height: max(360px,...) is deprecated</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 6. KRAFT RULE ======================== -->
+<section class="br-section" id="kraft-rule">
+  <div class="br-section__header">
+    <div class="br-section__number">06</div>
+    <h2 class="br-section__title">The <span style="color: var(--kraft)">Kraft</span> Rule</h2>
+    <p class="br-section__desc">Kraft is the only accent color for text emphasis. It replaces bold, italic, underline, and highlight.</p>
+  </div>
+
+  <!-- Litmus test -->
+  <div class="br-kraft-example" style="border-color: rgba(196,154,108,0.2); margin-bottom: 32px;">
+    <div class="br-kraft-example__badge br-kraft-example__badge--litmus">The Litmus Test</div>
+    <div class="br-kraft-example__text" style="font-style: italic; color: rgba(245,243,243,0.7);">
+      "If the reader scanned this section in 2 seconds, is this the <span style="color: var(--kraft)">one thing</span> they should take away?"
+    </div>
+    <div class="br-kraft-example__note">If yes, kraft it. If no, leave it.</div>
+  </div>
+
+  <!-- Rules -->
+  <div class="br-kraft-rules">
+    <div class="br-kraft-rule"><div class="br-kraft-rule__num">1</div><div class="br-kraft-rule__text"><strong style="color: var(--smoke);">One kraft span per paragraph.</strong> Two max in a long block. Never three.</div></div>
+    <div class="br-kraft-rule"><div class="br-kraft-rule__num">2</div><div class="br-kraft-rule__text"><strong style="color: var(--smoke);">Kraft the insight, not the label.</strong> Kraft "47% increase" not "Results."</div></div>
+    <div class="br-kraft-rule"><div class="br-kraft-rule__num">3</div><div class="br-kraft-rule__text"><strong style="color: var(--smoke);">Never kraft a full sentence.</strong> It defeats the purpose.</div></div>
+    <div class="br-kraft-rule"><div class="br-kraft-rule__num">4</div><div class="br-kraft-rule__text"><strong style="color: var(--smoke);">Never kraft punctuation alone.</strong> Include punctuation only if the word itself is krafted.</div></div>
+    <div class="br-kraft-rule"><div class="br-kraft-rule__num">5</div><div class="br-kraft-rule__text"><strong style="color: var(--smoke);">Works on both backgrounds.</strong> No adjustments needed for light or dark.</div></div>
+    <div class="br-kraft-rule"><div class="br-kraft-rule__num">6</div><div class="br-kraft-rule__text"><strong style="color: var(--smoke);">In headlines, 1-3 words max</strong> — the emotional peak of the line.</div></div>
+  </div>
+
+  <!-- Examples -->
+  <div style="display: flex; flex-direction: column; gap: 32px; margin-top: 48px;">
+    <div class="br-kraft-example br-kraft-example--good">
+      <div class="br-kraft-example__badge br-kraft-example__badge--good">Correct</div>
+      <div class="br-kraft-example__text">We helped them achieve a <span style="color: var(--kraft)">47% increase</span> in qualified leads.</div>
+      <div class="br-kraft-example__note">Kraft targets the key insight — the metric that matters.</div>
+    </div>
+    <div class="br-kraft-example br-kraft-example--good">
+      <div class="br-kraft-example__badge br-kraft-example__badge--good">Correct</div>
+      <div class="br-kraft-example__text" style="font-size: 28px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;">The future satisfies <span style="color: var(--kraft)">no one</span></div>
+      <div class="br-kraft-example__note">Headlines: kraft the emotional peak, 1-3 words.</div>
+    </div>
+    <div class="br-kraft-example br-kraft-example--bad">
+      <div class="br-kraft-example__badge br-kraft-example__badge--bad">Too Much</div>
+      <div class="br-kraft-example__text"><span style="color: var(--kraft)">We helped them achieve a 47% increase in qualified leads across every market.</span></div>
+      <div class="br-kraft-example__note">Full sentence kraft — nothing stands out when everything does.</div>
+    </div>
+    <div class="br-kraft-example br-kraft-example--bad">
+      <div class="br-kraft-example__badge br-kraft-example__badge--bad">Wrong Target</div>
+      <div class="br-kraft-example__text">We helped them achieve a 47% increase in <span style="color: var(--kraft)">Results:</span></div>
+      <div class="br-kraft-example__note">Krafting the label instead of the insight.</div>
+    </div>
+    <div class="br-kraft-example br-kraft-example--bad">
+      <div class="br-kraft-example__badge br-kraft-example__badge--bad">Competing</div>
+      <div class="br-kraft-example__text">Their <span style="color: var(--kraft)">revenue</span> grew while <span style="color: var(--kraft)">costs</span> dropped and <span style="color: var(--kraft)">retention</span> soared.</div>
+      <div class="br-kraft-example__note">Three competing kraft spans — the eye doesn't know where to land.</div>
+    </div>
+  </div>
+
+  <!-- Interactive exercises -->
+  <div class="br-kraft-interactive">
+    <div class="br-kraft-interactive__title">Practice: Choose the Kraft</div>
+    <div class="br-kraft-exercises">
+      <button class="br-kraft-ex-btn active" onclick="loadKraftExercise(0, this)">Exercise 1</button>
+      <button class="br-kraft-ex-btn" onclick="loadKraftExercise(1, this)">Exercise 2</button>
+      <button class="br-kraft-ex-btn" onclick="loadKraftExercise(2, this)">Exercise 3</button>
+    </div>
+    <div class="br-kraft-interactive__instructions">Click the one word or phrase you'd kraft in this paragraph.</div>
+    <div class="br-kraft-interactive__text" id="kraftExercise"></div>
+    <div class="br-kraft-interactive__feedback br-kraft-interactive__feedback--neutral" id="kraftFeedback">
+      Click a word or phrase above to test your kraft instinct.
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 7. RESPONSIVE ======================== -->
+<section class="br-section" id="responsive">
+  <div class="br-section__header">
+    <div class="br-section__number">07</div>
+    <h2 class="br-section__title">Responsive</h2>
+    <p class="br-section__desc">Three breakpoints. No others. Click each to see all changes.</p>
+  </div>
+
+  <div class="br-bp-viz">
+    <div class="br-bp-viz__title">Breakpoint Map</div>
+    <div class="br-bp-viz__bar">
+      <div class="br-bp-viz__segment br-bp-viz__segment--mobile">≤ 480</div>
+      <div class="br-bp-viz__segment br-bp-viz__segment--tablet">≤ 768</div>
+      <div class="br-bp-viz__segment br-bp-viz__segment--landscape">≤ 1024</div>
+      <div class="br-bp-viz__segment br-bp-viz__segment--desktop">Desktop</div>
+    </div>
+  </div>
+
+  <div class="br-breakpoints" style="margin-top: 32px;">
+    <div class="br-breakpoint" onclick="toggleBreakpoint(this)">
+      <div class="br-breakpoint__header">
+        <div>
+          <div class="br-breakpoint__size">1024<span style="font-size: 14px; font-weight: 400;">px</span></div>
+          <div class="br-breakpoint__name">Tablet Landscape</div>
+          <div class="br-breakpoint__query">@media (max-width: 1024px)</div>
+        </div>
+        <div class="br-breakpoint__toggle">+</div>
+      </div>
+      <div class="br-breakpoint__details">
+        <div class="br-breakpoint__list">
+          <div class="br-breakpoint__item">Section H2: clamp handles this automatically</div>
+          <div class="br-breakpoint__item">Grid gaps: 56px → 32px</div>
+          <div class="br-breakpoint__item">Section padding horizontal: 40px → 24px</div>
+          <div class="br-breakpoint__item">Overview padding: 80px 40px → 56px 24px</div>
+          <div class="br-breakpoint__item">Next block padding: 48px 40px → 40px 24px</div>
+        </div>
+      </div>
+    </div>
+    <div class="br-breakpoint" onclick="toggleBreakpoint(this)">
+      <div class="br-breakpoint__header">
+        <div>
+          <div class="br-breakpoint__size" style="color: var(--aqua);">768<span style="font-size: 14px; font-weight: 400;">px</span></div>
+          <div class="br-breakpoint__name">Tablet Portrait — <span style="color: #e74c3c; font-weight: 700;">Animations Off</span></div>
+          <div class="br-breakpoint__query">@media (max-width: 768px)</div>
+        </div>
+        <div class="br-breakpoint__toggle">+</div>
+      </div>
+      <div class="br-breakpoint__details">
+        <div class="br-breakpoint__list">
+          <div class="br-breakpoint__item br-breakpoint__item--critical">ALL entrance animations disabled — content visible by default</div>
+          <div class="br-breakpoint__item">Section H2: 26px (explicit override)</div>
+          <div class="br-breakpoint__item">Body: 16px → 14px</div>
+          <div class="br-breakpoint__item">Grid: multi-column → single column</div>
+          <div class="br-breakpoint__item">Section padding horizontal: 24px → 16px</div>
+          <div class="br-breakpoint__item">Gaps: 24px → 20px</div>
+          <div class="br-breakpoint__item">Overview padding: 56px 24px → 40px 16px</div>
+          <div class="br-breakpoint__item">Quote padding: → 40px 16px</div>
+        </div>
+      </div>
+    </div>
+    <div class="br-breakpoint" onclick="toggleBreakpoint(this)">
+      <div class="br-breakpoint__header">
+        <div>
+          <div class="br-breakpoint__size" style="color: #e74c3c;">480<span style="font-size: 14px; font-weight: 400;">px</span></div>
+          <div class="br-breakpoint__name">Mobile</div>
+          <div class="br-breakpoint__query">@media (max-width: 480px)</div>
+        </div>
+        <div class="br-breakpoint__toggle">+</div>
+      </div>
+      <div class="br-breakpoint__details">
+        <div class="br-breakpoint__list">
+          <div class="br-breakpoint__item">Hero padding: 0 20px</div>
+          <div class="br-breakpoint__item">Quote padding: 32px 14px</div>
+          <div class="br-breakpoint__item">Further gap reductions</div>
+          <div class="br-breakpoint__item">Touch targets: minimum 44px height</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live responsive preview -->
+  <div class="br-responsive-preview">
+    <div class="br-sub-header">
+      <div class="br-sub-header__title">Live Preview</div>
+      <div class="br-sub-header__desc">Toggle breakpoints to see type and layout adapt in real time.</div>
+    </div>
+    <div class="br-responsive-preview__controls">
+      <button class="br-rp-btn active" onclick="setPreview('desktop', this)">Desktop</button>
+      <button class="br-rp-btn" onclick="setPreview('1024', this)">1024px</button>
+      <button class="br-rp-btn" onclick="setPreview('768', this)">768px</button>
+      <button class="br-rp-btn" onclick="setPreview('480', this)">480px</button>
+    </div>
+    <div class="br-responsive-preview__frame" id="rpFrame" style="max-width: 100%;">
+      <div class="br-responsive-preview__mock-h2" id="rpH2" style="font-size: clamp(32px, 3.5vw, 48px);">Section Title Here</div>
+      <div class="br-responsive-preview__mock-body" id="rpBody" style="font-size: 16px;">Body text adapts across breakpoints with precise size adjustments.</div>
+      <div class="br-responsive-preview__mock-grid" id="rpGrid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="br-responsive-preview__mock-card"></div>
+        <div class="br-responsive-preview__mock-card"></div>
+        <div class="br-responsive-preview__mock-card"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 8. EMAIL STANDARDS ======================== -->
+<section class="br-section" id="email">
+  <div class="br-section__header">
+    <div class="br-section__number">08</div>
+    <h2 class="br-section__title">Email Standards</h2>
+    <p class="br-section__desc">HubSpot email blocks. Table-based, all inline styles, no animations, no JS. Max-width 600px.</p>
+  </div>
+
+  <div class="br-comp-grid">
+    <!-- Key rules -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Email Rules</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Table-based layout only — no divs for structure</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">All styles inline — no external stylesheets</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Max-width: 600px, centered with align="center"</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">No animations, transitions, transforms, or JavaScript</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Always set <strong>both</strong> bgcolor attribute AND inline background-color</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email font -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Email Font Stack</div>
+      <div class="br-code-block" style="margin: 0;">
+        <code>font-family: <span class="str">'Helvetica Neue'</span>, Arial, sans-serif;</code>
+      </div>
+      <div style="font-size: 11px; color: rgba(245,243,243,0.3); margin-top: 12px; line-height: 1.6;">
+        DM Serif Display via @import for newsletter titles only.<br>
+        No "LT Pro" in emails — web font not reliably loaded.
+      </div>
+    </div>
+
+    <!-- Bulletproof button -->
+    <div class="br-anim-card" style="grid-column: span 2;">
+      <div class="br-anim-card__title">Bulletproof Button</div>
+      <div class="br-anim-card__desc">Table-based, no VML needed. Always this exact structure.</div>
+      <div class="br-code-block">
+        <code>
+<span class="kw">&lt;table</span> border=<span class="str">"0"</span> cellpadding=<span class="str">"0"</span> cellspacing=<span class="str">"0"</span> role=<span class="str">"presentation"</span><span class="kw">&gt;</span><br>
+&nbsp;&nbsp;<span class="kw">&lt;tr&gt;&lt;td</span> align=<span class="str">"center"</span> bgcolor=<span class="str">"#C49A6C"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;style=<span class="str">"background-color: #C49A6C; border-radius: 0; padding: 14px 32px;"</span><span class="kw">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">&lt;a</span> href=<span class="str">"#"</span> style=<span class="str">"color: #221E1F; font-size: 10px;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">font-weight: 700; letter-spacing: 0.14em;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">text-transform: uppercase; text-decoration: none;"</span><span class="kw">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BUTTON TEXT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span>
+        </code>
+      </div>
+    </div>
+
+    <!-- HubSpot tokens -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">HubSpot Tokens</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--kraft);">{{ unsubscribe_link }}</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">Required — unsubscribe link</div>
+        </div>
+        <div style="padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--kraft);">{{ manage_preferences_url }}</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">Preference center link</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email responsive -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Email Responsive</div>
+      <div class="br-anim-card__desc">@media (max-width: 480px) with !important overrides in &lt;head&gt; &lt;style&gt; block.</div>
+      <div class="br-code-block" style="margin: 0;">
+        <code>
+<span class="kw">@media</span> (max-width: <span class="str">480px</span>) {<br>
+&nbsp;&nbsp;.<span class="kw">email-container</span> { width: <span class="str">100% !important</span>; }<br>
+&nbsp;&nbsp;.<span class="kw">stack-column</span> { display: <span class="str">block !important</span>; width: <span class="str">100% !important</span>; }<br>
+}
+        </code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 9. CODE CONVENTIONS ======================== -->
+<section class="br-section" id="code">
+  <div class="br-section__header">
+    <div class="br-section__number">09</div>
+    <h2 class="br-section__title">Code Conventions</h2>
+    <p class="br-section__desc">Naming, structure, and patterns that keep every block consistent and maintainable.</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">CSS Namespace</div>
+      <div class="br-anim-card__desc">Format: <code style="color: var(--kraft);">br-{client}-{block}</code> — BEM-style with block__element pattern.</div>
+      <div class="br-code-block"><code>
+<span class="cmt">/* e.g., br-acme-hero, br-acme-overview */</span><br>
+.<span class="kw">br-acme-hero</span> { }<br>
+.<span class="kw">br-acme-hero__title</span> { }<br>
+.<span class="kw">br-acme-hero__subtitle</span> { }<br>
+.<span class="kw">br-acme-hero__cta</span> { }
+      </code></div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">JS Naming</div>
+      <div class="br-anim-card__desc">IDs use camelCase.</div>
+      <div class="br-code-block"><code>
+<span class="kw">const</span> el = document.getElementById(<span class="str">'brAcmeHero'</span>);<br>
+<span class="kw">const</span> overview = document.getElementById(<span class="str">'brAcmeOverview'</span>);
+      </code></div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Required Block Header</div>
+      <div class="br-code-block"><code>
+<span class="cmt">/* ========================================<br>
+&nbsp;&nbsp;&nbsp;BR [Client] — [Block Name]<br>
+&nbsp;&nbsp;&nbsp;Brand Revolution Design Standards<br>
+&nbsp;&nbsp;&nbsp;======================================== */</span>
+      </code></div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Required Reset + Font Stack</div>
+      <div class="br-anim-card__desc">Every block includes both. No exceptions.</div>
+      <div class="br-code-block"><code>
+.<span class="kw">br-client-block</span> * {<br>
+&nbsp;&nbsp;margin: <span class="str">0</span>; padding: <span class="str">0</span>; box-sizing: <span class="str">border-box</span>;<br>
+}<br><br>
+.<span class="kw">br-client-block</span> {<br>
+&nbsp;&nbsp;font-family: <span class="str">"Helvetica Neue LT Pro"</span>, <span class="str">"Helvetica Neue"</span>, Arial, sans-serif;<br>
+&nbsp;&nbsp;-webkit-font-smoothing: <span class="str">antialiased</span>;<br>
+}
+      </code></div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Visibility Class</div>
+      <div class="br-anim-card__desc">Always <code style="color: var(--aqua);">.in-v</code> — never <code style="color: #e74c3c;">.is-visible</code> (deprecated).</div>
+      <div class="br-code-block"><code>
+<span class="cmt">/* CORRECT */</span><br>
+.<span class="kw">br-client-block__title</span>.<span class="kw">in-v</span> { opacity: <span class="str">1</span>; transform: <span class="str">translateY(0)</span>; }<br><br>
+<span class="cmt">/* WRONG — deprecated */</span><br>
+<span style="text-decoration: line-through; opacity: 0.4;">.<span class="kw">br-client-block__title</span>.<span class="kw">is-visible</span> { ... }</span>
+      </code></div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">IntersectionObserver</div>
+      <div class="br-anim-card__desc">Fire once. Unobserve immediately. Standard threshold: 0.25.</div>
+      <div class="br-code-block"><code>
+<span class="kw">const</span> observer = <span class="kw">new</span> IntersectionObserver((entries) => {<br>
+&nbsp;&nbsp;entries.forEach(entry => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> (entry.isIntersecting) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entry.target.classList.add(<span class="str">'in-v'</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;observer.unobserve(entry.target);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;});<br>
+}, { threshold: <span class="str">0.25</span> });
+      </code></div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Video: Full-Bleed Background</div>
+      <div class="br-anim-card__desc">Heroes and CTAs. Covers viewport, centered with transform.</div>
+      <div class="br-code-block"><code>
+.<span class="kw">br-client-block__bg</span> iframe {<br>
+&nbsp;&nbsp;position: <span class="str">absolute</span>;<br>
+&nbsp;&nbsp;top: <span class="str">50%</span>; left: <span class="str">50%</span>;<br>
+&nbsp;&nbsp;width: <span class="str">max(100%, 177.78vh)</span>;<br>
+&nbsp;&nbsp;height: <span class="str">max(100%, 56.25vw)</span>;<br>
+&nbsp;&nbsp;transform: <span class="str">translate(-50%, -50%)</span>;<br>
+&nbsp;&nbsp;border: <span class="str">none</span>; pointer-events: <span class="str">none</span>;<br>
+}
+      </code></div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Video: Contained Player</div>
+      <div class="br-anim-card__desc">Splits and showcases. Uses aspect-ratio with absolute iframe. Always include sound toggle via Vimeo Player API.</div>
+      <div class="br-code-block"><code>
+.<span class="kw">br-client-block__media</span> {<br>
+&nbsp;&nbsp;position: <span class="str">relative</span>;<br>
+&nbsp;&nbsp;aspect-ratio: <span class="str">16/9</span>;<br>
+&nbsp;&nbsp;border-radius: <span class="str">6px</span>;<br>
+&nbsp;&nbsp;overflow: <span class="str">hidden</span>;<br>
+&nbsp;&nbsp;background: <span class="str">#000000</span>;<br>
+}<br><br>
+.<span class="kw">br-client-block__media</span> iframe {<br>
+&nbsp;&nbsp;position: <span class="str">absolute</span>;<br>
+&nbsp;&nbsp;top: <span class="str">0</span>; left: <span class="str">0</span>;<br>
+&nbsp;&nbsp;width: <span class="str">100%</span>; height: <span class="str">100%</span>;<br>
+&nbsp;&nbsp;border: <span class="str">none</span>;<br>
+}
+      </code></div>
+    </div>
+
+    <!-- Deprecated practices -->
+    <div class="br-deprecated" style="background: rgba(231,76,60,0.04); border: 1px solid rgba(231,76,60,0.1); border-radius: 12px;">
+      <div class="br-deprecated__title">Deprecated Practices</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">Entrance animations outside <code style="color: #e74c3c;">@media (min-width: 769px)</code></span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">Using #FFFFFF or white anywhere — use Smoke #F5F3F3</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">Inline &lt;style&gt; overriding Squarespace globals without namespace</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">setTimeout chains for stagger — use transition-delay + IntersectionObserver</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">.br-*__stitch class/pattern — remove entirely</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">Old iframe formula padding-bottom: 56.25% — use aspect-ratio: 16/9 with absolute iframe</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">height: max(360px, min(56.25vw, 720px)) — use aspect-ratio: 16/9 with absolute iframe</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">@keyframes for entrance animations — use IntersectionObserver + .in-v class</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 10. BRAND VOICE (Coming Soon) ======================== -->
+<section class="br-section" id="brand-voice">
+  <div class="br-section__header">
+    <div class="br-section__number">10</div>
+    <h2 class="br-section__title">Brand <span style="color: var(--kraft)">Voice</span></h2>
+    <p class="br-section__desc">How BR speaks. The tone, cadence, and language patterns that make every piece of copy unmistakably ours.</p>
+  </div>
+
+  <div class="br-coming-soon">
+    <div class="br-coming-soon__orbs">
+      <div class="br-coming-soon__orb" style="width: 500px; height: 500px; top: -150px; left: -150px; background: radial-gradient(circle, rgba(55,85,66,0.4) 0%, transparent 70%); filter: blur(100px); -webkit-filter: blur(100px); animation: br-float-1 12s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
+      <div class="br-coming-soon__orb" style="width: 400px; height: 400px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(196,154,108,0.12) 0%, transparent 70%); filter: blur(100px); -webkit-filter: blur(100px); animation: br-float-2 14s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
+      <div class="br-coming-soon__orb" style="width: 300px; height: 300px; top: 20%; right: 10%; background: radial-gradient(circle, rgba(108,202,152,0.1) 0%, transparent 70%); filter: blur(80px); -webkit-filter: blur(80px); animation: br-float-3 16s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
+    </div>
+
+    <div class="br-coming-soon__badge">Coming Soon</div>
+    <h3 class="br-coming-soon__title">The voice behind the <span style="color: var(--kraft)">visual</span></h3>
+    <p class="br-coming-soon__desc">Brand standards define how we look. Brand voice defines how we sound. We're codifying the principles behind every headline, paragraph, and CTA across BR properties.</p>
+
+    <div class="br-coming-soon__preview">
+      <div class="br-coming-soon__card">
+        <div class="br-coming-soon__card-icon" style="color: var(--kraft);">&#9672;</div>
+        <div class="br-coming-soon__card-title">Tone Spectrum</div>
+        <div class="br-coming-soon__card-desc">When to be authoritative vs. conversational. How warmth scales with audience and context.</div>
+      </div>
+      <div class="br-coming-soon__card">
+        <div class="br-coming-soon__card-icon" style="color: var(--aqua);">&#9671;</div>
+        <div class="br-coming-soon__card-title">Language Patterns</div>
+        <div class="br-coming-soon__card-desc">Sentence rhythm, power words, prohibited cliches. The cadence that makes BR copy feel precise.</div>
+      </div>
+      <div class="br-coming-soon__card">
+        <div class="br-coming-soon__card-icon" style="color: var(--smoke);">&#9670;</div>
+        <div class="br-coming-soon__card-title">Headline Formulas</div>
+        <div class="br-coming-soon__card-desc">Proven structures for hero copy, CTAs, case study titles, and email subject lines.</div>
+      </div>
+      <div class="br-coming-soon__card">
+        <div class="br-coming-soon__card-icon" style="color: var(--kraft);">&#9673;</div>
+        <div class="br-coming-soon__card-title">Do / Don't Library</div>
+        <div class="br-coming-soon__card-desc">Real before/after examples from BR projects showing voice principles in action.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="padding: 60px 40px; text-align: center; border-top: 1px solid rgba(245,243,243,0.06);">
+  <div style="height: 2px; width: 64px; background: linear-gradient(90deg, var(--aqua), var(--kraft)); margin: 0 auto 24px;"></div>
+  <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kraft); margin-bottom: 8px;">Brand Revolution</div>
+  <div style="font-size: 12px; color: rgba(245,243,243,0.25);">Web Standards — Living Document</div>
+  <div style="margin-top: 24px; display: flex; justify-content: center; gap: 24px;">
+    <a href="#hero" style="font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,243,243,0.2); text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--kraft)'" onmouseout="this.style.color='rgba(245,243,243,0.2)'">Back to top</a>
+  </div>
+</footer>
+
+<script>
+// ---- DATA ----
+const COLORS = [
+  { name: 'Black', hex: '#000000', usage: 'Dark backgrounds, video containers', textColor: '#F5F3F3' },
+  { name: 'Raisin', hex: '#221E1F', usage: 'Text on light backgrounds, card backgrounds', textColor: '#F5F3F3' },
+  { name: 'Smoke', hex: '#F5F3F3', usage: 'Light backgrounds, text on dark (never #FFFFFF)', textColor: '#221E1F' },
+  { name: 'Kraft', hex: '#C49A6C', usage: 'Accent, buttons, emphasis', textColor: '#221E1F' },
+  { name: 'Aqua', hex: '#6CCA98', usage: 'Secondary accent, active states', textColor: '#221E1F' },
+  { name: 'Forest', hex: '#1a2e23', usage: 'Testimonial/metrics backgrounds', textColor: '#F5F3F3' },
+  { name: 'Dark Forest', hex: '#375542', usage: 'Aurora orbs, derived accents', textColor: '#F5F3F3' },
+];
+
+const DEPRECATED = [
+  { old: '#0c0c0c', replacement: '#000000' }, { old: '#111111', replacement: '#000000' },
+  { old: '#161616', replacement: '#000000' }, { old: '#0a0a0a', replacement: '#000000' },
+  { old: '#FFFFFF', replacement: '#F5F3F3' }, { old: '#459361', replacement: '#6CCA98' },
+];
+
+const OPACITY_SCALES = [
+  { name: 'Black overlays', base: 'rgba(0,0,0,', color: '#000', textColor: '#F5F3F3', values: [0.05,0.08,0.15,0.20,0.30,0.40,0.45,0.50,0.55,0.60,0.65,0.75,0.92] },
+  { name: 'Raisin text', base: 'rgba(34,30,31,', color: '#221E1F', textColor: '#F5F3F3', values: [0.10,0.15,0.25,0.30,0.45,0.55,0.90] },
+  { name: 'Smoke text', base: 'rgba(245,243,243,', color: '#F5F3F3', textColor: '#221E1F', values: [0.04,0.08,0.10,0.20,0.30,0.40,0.60,0.70,0.75] },
+  { name: 'Kraft accents', base: 'rgba(196,154,108,', color: '#C49A6C', textColor: '#221E1F', values: [0.06,0.08,0.12,0.15,0.30,0.50] },
+  { name: 'Aqua accents', base: 'rgba(108,202,152,', color: '#6CCA98', textColor: '#221E1F', values: [0.08,0.10,0.12,0.15,0.25,0.35] },
+];
+
+const TYPE_SCALE = [
+  { name: 'Hero H1', sample: 'Bold Vision Starts Here', size: 'clamp(34px, 4.8vw, 66px)', weight: 700, lh: '1.08', ls: '-0.025em', style: 'font-size:clamp(34px,4.8vw,66px);font-weight:700;line-height:1.08;letter-spacing:-0.025em;', note: 'max-width: 880px' },
+  { name: 'Section H2', sample: 'Section Title', size: 'clamp(32px, 3.5vw, 48px)', weight: 700, lh: '1.15', ls: '-0.02em', style: 'font-size:clamp(32px,3.5vw,48px);font-weight:700;line-height:1.15;letter-spacing:-0.02em;', note: '26px @768 (explicit override)' },
+  { name: 'CTA Headline', sample: 'Ready to Transform?', size: 'clamp(32px, 4vw, 64px)', weight: 700, lh: '1.1', ls: '-0.03em', style: 'font-size:clamp(32px,4vw,64px);font-weight:700;line-height:1.1;letter-spacing:-0.03em;' },
+  { name: 'Subtitle', sample: 'We build brands that move people and markets forward with precision and clarity.', size: 'clamp(15px, 1.4vw, 18px)', weight: 400, lh: '1.7', ls: '—', style: 'font-size:clamp(15px,1.4vw,18px);font-weight:400;line-height:1.7;', note: 'max-width: 540px' },
+  { name: 'Body', sample: 'Our approach combines strategic insight with creative execution to deliver measurable results for ambitious brands.', size: '16px', weight: 400, lh: '1.7', ls: '—', style: 'font-size:16px;font-weight:400;line-height:1.7;', note: '14px @768, max-width: 540px' },
+  { name: 'Quote', sample: '"They transformed everything we thought we knew about our market."', size: 'clamp(17px, 2vw, 22px)', weight: 400, lh: '1.6', ls: '—', style: 'font-size:clamp(17px,2vw,22px);font-weight:400;line-height:1.6;font-style:italic;' },
+  { name: 'Sub-headline', sample: 'Strategic Approach', size: '20px', weight: 700, lh: '1.2', ls: '-0.01em', style: 'font-size:20px;font-weight:700;line-height:1.2;letter-spacing:-0.01em;' },
+  { name: 'Eyebrow / Label', sample: 'CASE STUDY', size: '13-15px', weight: 600, lh: '—', ls: '0.18-0.20em', style: 'font-size:14px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;' },
+  { name: 'Button', sample: 'EXPLORE OUR WORK', size: '10px', weight: 700, lh: '—', ls: '0.14em', style: 'font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;' },
+  { name: 'Pill / Tag', sample: 'STRATEGY', size: '9-10px', weight: 600, lh: '—', ls: '0.10-0.16em', style: 'font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;' },
+  { name: 'Small Label', sample: 'DETAILS', size: '9px', weight: 600, lh: '—', ls: '0.20em', style: 'font-size:9px;font-weight:600;letter-spacing:0.20em;text-transform:uppercase;' },
+  { name: 'Quote Name', sample: 'Jane Smith', size: '14px', weight: 600, lh: '—', ls: '0.04em', style: 'font-size:14px;font-weight:600;letter-spacing:0.04em;color:#C49A6C;' },
+  { name: 'Quote Role', sample: 'VP Marketing, Acme Co', size: '12px', weight: 400, lh: '—', ls: '0.03em', style: 'font-size:12px;font-weight:400;letter-spacing:0.03em;opacity:0.4;' },
+];
+
+const MAX_WIDTHS = [
+  { label: 'Content container', value: 1400 }, { label: 'Next block', value: 1000 },
+  { label: 'Hero title', value: 880 }, { label: 'Quote', value: 860 },
+  { label: 'CTA content', value: 700 }, { label: 'Subtitle', value: 540 }, { label: 'Body text', value: 540 },
+];
+
+const GAPS = [
+  { label: 'Grid desktop', value: 56 }, { label: 'Cards', value: 48 }, { label: 'Links', value: 36 },
+  { label: 'Grid @1024', value: 32 }, { label: 'Tablet', value: 28 }, { label: 'Elements', value: 24 },
+  { label: '@768', value: 20 }, { label: 'Header', value: 16 }, { label: 'Sub-grid', value: 12 },
+  { label: 'Filmstrip', value: 10 }, { label: 'Pills', value: 8 },
+];
+
+const DURATIONS = [
+  { dur: '0.3s', pct: 30, usage: 'Color, border', color: 'var(--kraft)' },
+  { dur: '0.45s', pct: 45, usage: 'Button fill', color: 'var(--kraft)' },
+  { dur: '0.5s', pct: 50, usage: 'Image hover', color: 'var(--kraft)' },
+  { dur: '0.6s', pct: 60, usage: 'Entrance (primary)', color: 'var(--aqua)' },
+  { dur: '0.7s', pct: 70, usage: 'Headline entrance', color: 'var(--aqua)' },
+  { dur: '0.8s', pct: 80, usage: 'Gradient line', color: 'var(--aqua)' },
+];
+
+const TRANSFORMS = [
+  { px: 24, usage: 'Hero subtitle' }, { px: 20, usage: 'Standard entrance' },
+  { px: 16, usage: 'Headers' }, { px: 12, usage: 'Secondary elements' }, { px: 10, usage: 'Subtle / minor' },
+];
+
+const KRAFT_EXERCISES = [
+  {
+    words: ['Our team', 'delivered', 'a complete', 'brand redesign', 'that drove', '3x pipeline growth', 'in the first', 'quarter.'],
+    correct: 5, feedback: '"3x pipeline growth" is the key insight — the one metric a scanner should catch.'
+  },
+  {
+    words: ['The campaign', 'generated', 'over', '$2.4M in revenue', 'for a client', 'who had never', 'invested in', 'digital marketing.'],
+    correct: 3, feedback: '"$2.4M in revenue" is the standout number — concrete, impressive, the hook.'
+  },
+  {
+    words: ['After six months,', 'employee retention', 'improved by', '92%', 'across all', 'regional offices,', 'exceeding', 'every benchmark.'],
+    correct: 3, feedback: '"92%" is the killer stat — one number that tells the whole story.'
+  }
+];
+
+// ---- RENDER ----
+function renderColors() {
+  document.getElementById('brColorGrid').innerHTML = COLORS.map(c => `
+    <div class="br-color-card" onclick="copyColor('${c.hex}', this)">
+      <div class="br-color-card__swatch" style="background:${c.hex};color:${c.textColor};">
+        <span class="br-color-card__copied">Copied!</span>
+      </div>
+      <div class="br-color-card__info">
+        <div class="br-color-card__name">${c.name}</div>
+        <div class="br-color-card__hex">${c.hex}</div>
+        <div class="br-color-card__usage">${c.usage}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderOpacityScales() {
+  const container = document.getElementById('brOpacityScales');
+  container.innerHTML = OPACITY_SCALES.map(scale => {
+    // Black & raisin overlays need a light background to be visible
+    const needsLightBg = scale.color === '#000' || scale.color === '#221E1F';
+    const chipBg = needsLightBg ? 'background: var(--smoke);' : '';
+    const gridStyle = needsLightBg ? 'background: var(--smoke); border-radius: 8px; padding: 8px;' : '';
+    return `
+    <div class="br-opacity-row">
+      <div class="br-opacity-row__label" style="color: ${scale.color === '#000' ? 'rgba(245,243,243,0.5)' : scale.color};">${scale.name}</div>
+      <div class="br-opacity-grid" style="${gridStyle}">
+        ${scale.values.map(v => {
+          const rgba = scale.base + v + ')';
+          const textCol = needsLightBg
+            ? (v > 0.5 ? '#F5F3F3' : '#221E1F')
+            : (v > 0.4 ? scale.textColor : 'rgba(245,243,243,0.5)');
+          return `<div class="br-opacity-chip" style="background:${rgba};color:${textCol};" onclick="navigator.clipboard.writeText('${rgba}')">
+            ${v}
+            <div class="br-opacity-chip__tooltip">${rgba}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderDeprecated() {
+  document.getElementById('brDeprecated').innerHTML = DEPRECATED.map(d => `
+    <div class="br-deprecated__item">
+      <div class="br-deprecated__swatch" style="background:${d.old};"></div>
+      <span class="br-deprecated__text">${d.old}</span>
+      <span class="br-deprecated__arrow">&rarr;</span>
+      <span class="br-deprecated__replacement">${d.replacement}</span>
+    </div>
+  `).join('');
+}
+
+function renderTypeScale() {
+  document.getElementById('brTypeScale').innerHTML = TYPE_SCALE.map(t => `
+    <div class="br-type-row">
+      <div class="br-type-row__sample" style="${t.style}">${t.sample}</div>
+      <div class="br-type-row__meta">
+        <span class="br-type-row__tag">${t.name}</span>
+        <span class="br-type-row__tag br-type-row__tag--size">${t.size}</span>
+        <span class="br-type-row__tag br-type-row__tag--weight">${t.weight}</span>
+        ${t.lh !== '—' ? `<span class="br-type-row__tag br-type-row__tag--lh">lh ${t.lh}</span>` : ''}
+        ${t.ls !== '—' ? `<span class="br-type-row__tag br-type-row__tag--ls">ls ${t.ls}</span>` : ''}
+      </div>
+      ${t.note ? `<div class="br-type-row__note">${t.note}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function renderSpacing() {
+  const maxVal = 1400;
+  document.getElementById('brMaxWidths').innerHTML = MAX_WIDTHS.map(m => `
+    <div class="br-spacing-bar">
+      <div class="br-spacing-bar__label">${m.label}</div>
+      <div class="br-spacing-bar__visual" style="width:${(m.value/maxVal*100)}%;"></div>
+      <div class="br-spacing-bar__value">${m.value}px</div>
+    </div>
+  `).join('');
+
+  document.getElementById('brGaps').innerHTML = GAPS.map(g => `
+    <div class="br-spacing-bar">
+      <div class="br-spacing-bar__label">${g.label}</div>
+      <div class="br-spacing-bar__visual" style="width:${(g.value/56*100)}%;"></div>
+      <div class="br-spacing-bar__value">${g.value}px</div>
+    </div>
+  `).join('');
+}
+
+function renderDurations() {
+  document.getElementById('brDurations').innerHTML = DURATIONS.map(d => `
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-size:11px;font-family:monospace;color:${d.color};width:36px;">${d.dur}</span>
+      <div style="flex:1;height:6px;background:rgba(245,243,243,0.06);border-radius:3px;overflow:hidden;">
+        <div style="width:${d.pct}%;height:100%;background:${d.color};border-radius:3px;opacity:0.5;"></div>
+      </div>
+      <span style="font-size:10px;color:rgba(245,243,243,0.3);">${d.usage}</span>
+    </div>
+  `).join('');
+}
+
+function renderTransforms() {
+  document.getElementById('brTransforms').innerHTML = TRANSFORMS.map(t => {
+    const pct = Math.max(45, (t.px/24*100));
+    return `
+    <div class="br-transform-bar">
+      <div class="br-transform-bar__label">${t.px}px</div>
+      <div class="br-transform-bar__track">
+        <div class="br-transform-bar__fill" style="width:${pct}%;">${t.usage}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ---- INTERACTIONS ----
+function copyColor(hex, card) {
+  navigator.clipboard.writeText(hex).then(() => {
+    const badge = card.querySelector('.br-color-card__copied');
+    badge.classList.add('show');
+    setTimeout(() => badge.classList.remove('show'), 1200);
+  });
+}
+
+function playEasing() {
+  ['easeDot1','easeDot2','easeDot3','easeDot4'].forEach(id => {
+    const dot = document.getElementById(id);
+    dot.classList.remove('animate'); dot.style.left = '0';
+    void dot.offsetWidth;
+    dot.classList.add('animate');
+  });
+}
+
+function playEntrance() {
+  const box = document.getElementById('entranceBox');
+  box.classList.add('hidden');
+  void box.offsetWidth;
+  setTimeout(() => box.classList.remove('hidden'), 100);
+}
+
+function playStagger() {
+  const items = document.querySelectorAll('#staggerItems .br-stagger-item');
+  items.forEach(i => i.classList.add('hidden'));
+  void items[0].offsetWidth;
+  setTimeout(() => items.forEach(i => i.classList.remove('hidden')), 100);
+}
+
+function playWordReveal() {
+  const words = document.querySelectorAll('#wordReveal .br-word-reveal__word');
+  words.forEach(w => w.classList.remove('br-visible'));
+  setTimeout(() => {
+    words.forEach((w, i) => {
+      setTimeout(() => w.classList.add('br-visible'), 500 + i * 150);
+    });
+  }, 100);
+}
+
+// Kraft exercises
+let currentExercise = 0;
+function loadKraftExercise(idx, btn) {
+  currentExercise = idx;
+  document.querySelectorAll('.br-kraft-ex-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const ex = KRAFT_EXERCISES[idx];
+  document.getElementById('kraftExercise').innerHTML = ex.words.map((w, i) =>
+    `<span class="kraft-word" data-idx="${i}" onclick="checkKraft(this, ${idx})">${w} </span>`
+  ).join('');
+  document.getElementById('kraftFeedback').className = 'br-kraft-interactive__feedback br-kraft-interactive__feedback--neutral';
+  document.getElementById('kraftFeedback').textContent = 'Click a word or phrase above to test your kraft instinct.';
+}
+
+function checkKraft(el, exIdx) {
+  document.querySelectorAll('#kraftExercise .kraft-word').forEach(w => w.classList.remove('active'));
+  el.classList.add('active');
+  const ex = KRAFT_EXERCISES[exIdx];
+  const fb = document.getElementById('kraftFeedback');
+  if (parseInt(el.dataset.idx) === ex.correct) {
+    fb.className = 'br-kraft-interactive__feedback br-kraft-interactive__feedback--good';
+    fb.textContent = 'Correct! ' + ex.feedback;
+  } else {
+    fb.className = 'br-kraft-interactive__feedback br-kraft-interactive__feedback--bad';
+    fb.textContent = 'Not quite. Kraft the insight, not the label — what\'s the ONE metric or outcome?';
+  }
+}
+
+function toggleBreakpoint(el) { el.classList.toggle('open'); }
+
+function setPreview(size, btn) {
+  document.querySelectorAll('.br-rp-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const frame = document.getElementById('rpFrame');
+  const h2 = document.getElementById('rpH2');
+  const body = document.getElementById('rpBody');
+  const grid = document.getElementById('rpGrid');
+
+  const presets = {
+    desktop: { maxW: '100%', h2: '48px', body: '16px', cols: 'repeat(3, 1fr)', gap: '56px', pad: '40px' },
+    '1024': { maxW: '760px', h2: '38px', body: '16px', cols: 'repeat(3, 1fr)', gap: '32px', pad: '24px' },
+    '768': { maxW: '560px', h2: '26px', body: '14px', cols: '1fr', gap: '20px', pad: '16px' },
+    '480': { maxW: '340px', h2: '26px', body: '14px', cols: '1fr', gap: '16px', pad: '14px' },
+  };
+  const p = presets[size];
+  frame.style.maxWidth = p.maxW;
+  frame.style.padding = `32px ${p.pad}`;
+  h2.style.fontSize = p.h2;
+  body.style.fontSize = p.body;
+  grid.style.gridTemplateColumns = p.cols;
+  grid.style.gap = p.gap;
+}
+
+function toggleMobileMenu() { document.getElementById('brMobileMenu').classList.toggle('open'); }
+function closeMobileMenu() { document.getElementById('brMobileMenu').classList.remove('open'); }
+
+function handleNotify() {
+  const email = document.getElementById('notifyEmail').value;
+  const confirm = document.getElementById('notifyConfirm');
+  if (email && email.includes('@')) {
+    confirm.textContent = "You're on the list. We'll notify you when Brand Voice launches.";
+    confirm.style.opacity = '1';
+    document.getElementById('notifyEmail').value = '';
+  } else {
+    confirm.textContent = 'Please enter a valid email.';
+    confirm.style.color = '#e74c3c';
+    confirm.style.opacity = '1';
+  }
+}
+
+// ---- SCROLL ----
+const sections = ['colors','typography','spacing','animation','components','kraft-rule','responsive','email','code','brand-voice'];
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('brProgress').style.width = (scrollTop / docHeight * 100) + '%';
+
+  // Active nav
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollTop + 120) current = id;
+  });
+  document.querySelectorAll('.br-nav__link:not(.br-nav__link--coming-soon)').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+
+// Section entrance
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-v');
+      sectionObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.25 });
+
+// ---- INIT ----
+document.addEventListener('DOMContentLoaded', () => {
+  renderColors();
+  renderOpacityScales();
+  renderDeprecated();
+  renderTypeScale();
+  renderSpacing();
+  renderDurations();
+  renderTransforms();
+  loadKraftExercise(0, null);
+  // Trigger word reveal on first load
+  setTimeout(() => playWordReveal(), 1000);
+
+  document.querySelectorAll('.br-section__header').forEach(h => sectionObserver.observe(h));
+});
+</script>
+
+</body>
+</html>
