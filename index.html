@@ -707,7 +707,10 @@ body {
       <a href="#responsive" class="br-nav__link">Responsive</a>
       <a href="#email" class="br-nav__link">Email</a>
       <a href="#code" class="br-nav__link">Code</a>
-      <a href="#brand-voice" class="br-nav__link br-nav__link--coming-soon">Voice</a>
+      <a href="#photography" class="br-nav__link">Photo</a>
+      <a href="#accessibility" class="br-nav__link">A11y</a>
+      <a href="#editorial" class="br-nav__link">Editorial</a>
+      <a href="#brand-voice" class="br-nav__link">Voice</a>
     </div>
     <div class="br-nav__hamburger" id="brHamburger" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
@@ -725,7 +728,10 @@ body {
   <a href="#responsive" class="br-nav__link" onclick="closeMobileMenu()">Responsive</a>
   <a href="#email" class="br-nav__link" onclick="closeMobileMenu()">Email</a>
   <a href="#code" class="br-nav__link" onclick="closeMobileMenu()">Code</a>
-  <a href="#brand-voice" class="br-nav__link" onclick="closeMobileMenu()" style="opacity: 0.5;">Brand Voice (Coming Soon)</a>
+  <a href="#photography" class="br-nav__link" onclick="closeMobileMenu()">Photography</a>
+  <a href="#accessibility" class="br-nav__link" onclick="closeMobileMenu()">Accessibility</a>
+  <a href="#editorial" class="br-nav__link" onclick="closeMobileMenu()">Editorial</a>
+  <a href="#brand-voice" class="br-nav__link" onclick="closeMobileMenu()">Brand Voice</a>
 </div>
 
 <!-- Hero -->
@@ -747,8 +753,8 @@ body {
     </a>
     <div class="br-hero__stats">
       <div><div class="br-hero__stat-num">7</div><div class="br-hero__stat-label">Core Colors</div></div>
-      <div><div class="br-hero__stat-num">9</div><div class="br-hero__stat-label">Type Scales</div></div>
-      <div><div class="br-hero__stat-num">4</div><div class="br-hero__stat-label">Easing Curves</div></div>
+      <div><div class="br-hero__stat-num">13</div><div class="br-hero__stat-label">Type Scales</div></div>
+      <div><div class="br-hero__stat-num">12</div><div class="br-hero__stat-label">Sections</div></div>
       <div><div class="br-hero__stat-num">3</div><div class="br-hero__stat-label">Breakpoints</div></div>
     </div>
 
@@ -765,7 +771,7 @@ body {
       <div class="br-hero__voice-teaser-body">
         <div class="br-hero__voice-teaser-top">
           <span class="br-hero__voice-teaser-title">Brand Voice</span>
-          <span class="br-hero__voice-teaser-badge">Coming Soon</span>
+          <span class="br-hero__voice-teaser-badge" style="background: var(--kraft); color: var(--raisin);">New</span>
         </div>
         <div class="br-hero__voice-teaser-text">How BR speaks. Tone, cadence, headline formulas, and the language patterns behind every piece of copy.</div>
       </div>
@@ -1244,7 +1250,7 @@ body {
     </div>
     <div class="br-kraft-example br-kraft-example--good">
       <div class="br-kraft-example__badge br-kraft-example__badge--good">Correct</div>
-      <div class="br-kraft-example__text" style="font-size: 28px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;">The future satisfies <span style="color: var(--kraft)">no one</span></div>
+      <div class="br-kraft-example__text" style="font-size: 28px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;">The future satisfies <span style="color: var(--kraft)">no one.</span></div>
       <div class="br-kraft-example__note">Headlines: kraft the emotional peak, 1-3 words.</div>
     </div>
     <div class="br-kraft-example br-kraft-example--bad">
@@ -1645,48 +1651,562 @@ body {
 
 <div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
 
-<!-- ======================== 10. BRAND VOICE (Coming Soon) ======================== -->
-<section class="br-section" id="brand-voice">
+<!-- ======================== 10. PHOTOGRAPHY & MEDIA ======================== -->
+<section class="br-section" id="photography">
   <div class="br-section__header">
     <div class="br-section__number">10</div>
-    <h2 class="br-section__title">Brand <span style="color: var(--kraft)">Voice</span></h2>
-    <p class="br-section__desc">How BR speaks. The tone, cadence, and language patterns that make every piece of copy unmistakably ours.</p>
+    <h2 class="br-section__title">Photography & <span style="color: var(--kraft)">Media</span></h2>
+    <p class="br-section__desc">How images are treated across BR. Darken and desaturate slightly — never flatten to black and white.</p>
   </div>
 
-  <div class="br-coming-soon">
+  <div class="br-comp-grid">
+    <!-- Image treatment -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Image Treatment</div>
+      <div class="br-anim-card__desc">Images are darkened and slightly desaturated — never fully B&W. This maintains warmth while keeping text readable.</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--kraft);">filter: brightness(.6) saturate(.8)</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">Thumbnails — dark enough for text overlay</div>
+        </div>
+        <div style="padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--kraft);">opacity: .7 — .85</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">Feature images — let background breathe through</div>
+        </div>
+        <div style="padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--aqua);">object-fit: cover; position: absolute; inset: 0;</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">All images — full bleed, never letterboxed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aspect ratios -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Aspect Ratios</div>
+      <div class="br-anim-card__desc">Three ratios. Use the right one for the context.</div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <div style="width: 100%; aspect-ratio: 16/9; background: var(--forest); border-radius: 6px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,243,243,0.3);">16 : 9</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.4);">Video players, hero backgrounds, showcases</div>
+        </div>
+        <div>
+          <div style="width: 100%; aspect-ratio: 16/10; background: var(--forest); border-radius: 6px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,243,243,0.3);">16 : 10</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.4);">Case study thumbnails, next-block cards</div>
+        </div>
+        <div>
+          <div style="width: 100%; aspect-ratio: 4/3; background: var(--forest); border-radius: 6px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,243,243,0.3);">4 : 3</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.4);">Display grids, gallery cells</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Border radius -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Image Framing</div>
+      <div class="br-anim-card__desc">Consistent border-radius by context. Never sharp corners on images.</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="width: 48px; height: 32px; background: var(--dark-forest); border-radius: 4px; flex-shrink: 0;"></div>
+          <div><span style="font-size: 12px; font-family: monospace; color: var(--kraft);">4px</span> <span style="font-size: 11px; color: rgba(245,243,243,0.35);">— Thumbnails, grid cells</span></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="width: 48px; height: 32px; background: var(--dark-forest); border-radius: 6px; flex-shrink: 0;"></div>
+          <div><span style="font-size: 12px; font-family: monospace; color: var(--kraft);">6px</span> <span style="font-size: 11px; color: rgba(245,243,243,0.35);">— Video players, feature images</span></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="width: 40px; height: 40px; background: var(--dark-forest); border-radius: 50%; flex-shrink: 0;"></div>
+          <div><span style="font-size: 12px; font-family: monospace; color: var(--kraft);">50%</span> <span style="font-size: 11px; color: rgba(245,243,243,0.35);">— Headshots (120x120, 3px kraft border)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay pattern -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Diagonal Overlays</div>
+      <div class="br-anim-card__desc">135-degree gradient overlays for text over imagery. Not the old top-to-bottom pattern.</div>
+      <div class="br-code-block" style="margin: 0;"><code>
+<span class="cmt">/* Dark overlay (default) */</span><br>
+background: <span class="str">linear-gradient(135deg,<br>&nbsp;&nbsp;rgba(34,30,31,.85) 0%,<br>&nbsp;&nbsp;rgba(34,30,31,.6) 100%)</span>;<br><br>
+<span class="cmt">/* Light overlay */</span><br>
+background: <span class="str">linear-gradient(135deg,<br>&nbsp;&nbsp;rgba(245,243,243,.9) 0%,<br>&nbsp;&nbsp;rgba(245,243,243,.7) 100%)</span>;
+      </code></div>
+    </div>
+
+    <!-- Play buttons -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Play Buttons</div>
+      <div class="br-anim-card__desc">Consistent video play button across all players.</div>
+      <div style="display: flex; align-items: center; justify-content: center; padding: 24px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(0,0,0,.45); border: 2px solid rgba(245,243,243,.5); display: flex; align-items: center; justify-content: center; color: var(--smoke); font-size: 18px; padding-left: 3px;">&#9654;</div>
+      </div>
+      <div style="font-size: 10px; font-family: monospace; color: rgba(245,243,243,0.25); line-height: 1.8;">
+        52px circle<br>
+        background: rgba(0,0,0,.45)<br>
+        border: 2px solid rgba(245,243,243,.5)<br>
+        Centered absolute positioning
+      </div>
+    </div>
+
+    <!-- Media shadows -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Media Depth</div>
+      <div class="br-anim-card__desc">Shadow and hover for image containers.</div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--kraft);">box-shadow: 0 8px 40px rgba(0,0,0,.45)</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">Video players and feature media</div>
+        </div>
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--aqua);">transform: scale(1.04); filter: saturate(1.1) brightness(1.05)</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">Hover — subtle scale + warmth boost</div>
+        </div>
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 11px; font-family: monospace; color: var(--aqua);">border: 2px solid transparent → #C49A6C</div>
+          <div style="font-size: 10px; color: rgba(245,243,243,0.3); margin-top: 4px;">Active thumbnail — kraft border highlight</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 11. ACCESSIBILITY ======================== -->
+<section class="br-section" id="accessibility">
+  <div class="br-section__header">
+    <div class="br-section__number">11</div>
+    <h2 class="br-section__title">Accessibility</h2>
+    <p class="br-section__desc">Contrast, focus states, and semantic markup. Accessibility isn't optional — it's built into every block.</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+    <!-- Kraft contrast -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Kraft Contrast Rules</div>
+      <div class="br-anim-card__desc">Kraft (#C49A6C) has limited contrast. Where it can and can't be used for text.</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px;">
+        <div style="background: var(--raisin); border-radius: 8px; padding: 20px; text-align: center; border: 1px solid rgba(108,202,152,0.15);">
+          <div style="font-size: 16px; font-weight: 600; color: var(--kraft); margin-bottom: 8px;">Kraft on Dark</div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aqua);">Allowed</div>
+        </div>
+        <div style="background: var(--smoke); border-radius: 8px; padding: 20px; text-align: center; border: 1px solid rgba(231,76,60,0.15);">
+          <div style="font-size: 16px; font-weight: 600; color: var(--kraft); margin-bottom: 8px;">Kraft on Light</div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #e74c3c;">Decorative Only</div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.35); margin-top: 16px; line-height: 1.6;">
+        Kraft text on light backgrounds fails WCAG AA for body text. Only use for decorative/large display type on light backgrounds — never for readable body copy.
+      </div>
+    </div>
+
+    <!-- Text contrast pairs -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Text Contrast Pairs</div>
+      <div class="br-anim-card__desc">Approved text/background combinations used across BR blocks.</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: #000; display: flex; align-items: center; justify-content: center;"><span style="color: rgba(245,243,243,.75); font-size: 10px; font-weight: 700;">Aa</span></div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.5);">Smoke 75% on Black — body text on dark</div>
+          <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aqua); margin-left: auto;">Pass</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: #000; display: flex; align-items: center; justify-content: center;"><span style="color: #C49A6C; font-size: 10px; font-weight: 700;">Aa</span></div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.5);">Kraft on Black — accent text</div>
+          <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aqua); margin-left: auto;">Pass</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: #221E1F; display: flex; align-items: center; justify-content: center;"><span style="color: #C49A6C; font-size: 10px; font-weight: 700;">Aa</span></div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.5);">Kraft on Raisin — accent text</div>
+          <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aqua); margin-left: auto;">Pass</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: var(--smoke); display: flex; align-items: center; justify-content: center;"><span style="color: rgba(34,30,31,.65); font-size: 10px; font-weight: 700;">Aa</span></div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.5);">Raisin 65% on Smoke — body text on light</div>
+          <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aqua); margin-left: auto;">Pass</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: var(--smoke); display: flex; align-items: center; justify-content: center;"><span style="color: #C49A6C; font-size: 10px; font-weight: 700;">Aa</span></div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.5);">Kraft on Smoke — body text</div>
+          <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #e74c3c; margin-left: auto;">Fail</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Focus states -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Focus States</div>
+      <div class="br-anim-card__desc">Every interactive element needs a visible focus ring for keyboard navigation.</div>
+      <div class="br-code-block" style="margin: 0;"><code>
+<span class="cmt">/* Standard focus ring */</span><br>
+border-color: <span class="str">var(--kraft)</span>;<br>
+box-shadow: <span class="str">0 0 0 2px rgba(196,154,108,.15)</span>;
+      </code></div>
+      <div style="margin-top: 16px; display: flex; gap: 12px; align-items: center;">
+        <input type="text" readonly value="Focus example" style="padding: 10px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--kraft); border-radius: 6px; color: var(--smoke); font-family: inherit; font-size: 12px; box-shadow: 0 0 0 2px rgba(196,154,108,.15); outline: none; width: 160px;">
+        <span style="font-size: 10px; color: rgba(245,243,243,0.3);">← Active focus state</span>
+      </div>
+    </div>
+
+    <!-- Semantic markup -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Semantic Markup</div>
+      <div class="br-anim-card__desc">Required patterns for accessible HTML.</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);"><code style="color: var(--kraft);">alt=""</code> on every image — descriptive, not decorative</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);"><code style="color: var(--kraft);">role="presentation"</code> on all layout tables (email)</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);"><code style="color: var(--kraft);">title=""</code> on icon-only buttons</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);"><code style="color: var(--kraft);">overflow-wrap: break-word</code> on all headline/title selectors</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 12. EDITORIAL ======================== -->
+<section class="br-section" id="editorial">
+  <div class="br-section__header">
+    <div class="br-section__number">12</div>
+    <h2 class="br-section__title">Editorial</h2>
+    <p class="br-section__desc">Typography layout, alignment rules, and content structure patterns beyond the type scale.</p>
+  </div>
+
+  <div class="br-comp-grid">
+    <!-- Alignment rules -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Alignment</div>
+      <div class="br-anim-card__desc">Body and hero text left-aligned. Quotes, metrics, and CTAs centered.</div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 3px solid var(--kraft);">
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--kraft); margin-bottom: 6px;">Left-Aligned</div>
+          <div style="font-size: 11px; color: rgba(245,243,243,0.4); line-height: 1.5;">Hero content, body copy, subtitles, split sections, overview blocks</div>
+        </div>
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 3px solid var(--aqua); text-align: center;">
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aqua); margin-bottom: 6px;">Centered</div>
+          <div style="font-size: 11px; color: rgba(245,243,243,0.4); line-height: 1.5;">Quotes, testimonials, metrics/stats, CTA sections</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Readability widths -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Readability Widths</div>
+      <div class="br-anim-card__desc">Max-width constraints that keep line length comfortable (roughly 8-12 words per line).</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 11px; font-family: monospace; color: var(--kraft); width: 48px; text-align: right;">520px</span>
+          <div style="flex: 1; height: 4px; background: rgba(245,243,243,0.06); border-radius: 2px; overflow: hidden;"><div style="width: 68%; height: 100%; background: var(--kraft); opacity: 0.4; border-radius: 2px;"></div></div>
+          <span style="font-size: 10px; color: rgba(245,243,243,0.3);">Body / subtitle</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 11px; font-family: monospace; color: var(--kraft); width: 48px; text-align: right;">700px</span>
+          <div style="flex: 1; height: 4px; background: rgba(245,243,243,0.06); border-radius: 2px; overflow: hidden;"><div style="width: 82%; height: 100%; background: var(--kraft); opacity: 0.4; border-radius: 2px;"></div></div>
+          <span style="font-size: 10px; color: rgba(245,243,243,0.3);">Hero content</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 11px; font-family: monospace; color: var(--kraft); width: 48px; text-align: right;">760px</span>
+          <div style="flex: 1; height: 4px; background: rgba(245,243,243,0.06); border-radius: 2px; overflow: hidden;"><div style="width: 90%; height: 100%; background: var(--aqua); opacity: 0.4; border-radius: 2px;"></div></div>
+          <span style="font-size: 10px; color: rgba(245,243,243,0.3);">Quotes (centered)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight & tracking -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Weight & Tracking</div>
+      <div class="br-anim-card__desc">Headlines go tight, body goes light. This contrast creates hierarchy without size alone.</div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 4px;">Tight headlines</div>
+          <div style="font-size: 10px; font-family: monospace; color: rgba(245,243,243,0.25);">weight: 700 | tracking: -0.03em</div>
+        </div>
+        <div>
+          <div style="font-size: 15px; font-weight: 300; line-height: 1.75; color: rgba(245,243,243,0.75); margin-bottom: 4px;">Light body text with generous leading creates comfortable reading rhythm across longer passages.</div>
+          <div style="font-size: 10px; font-family: monospace; color: rgba(245,243,243,0.25);">weight: 300 | tracking: 0 | line-height: 1.75</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fluid type -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Fluid Type</div>
+      <div class="br-anim-card__desc">All display text uses clamp() — no manual breakpoint overrides needed.</div>
+      <div class="br-code-block" style="margin: 0;"><code>
+<span class="cmt">/* Headlines scale automatically */</span><br>
+font-size: <span class="str">clamp(28px, 4.5vw, 60px)</span>;<br><br>
+<span class="cmt">/* Subtitles */</span><br>
+font-size: <span class="str">clamp(14px, 1.4vw, 17px)</span>;<br><br>
+<span class="cmt">/* Quotes */</span><br>
+font-size: <span class="str">clamp(15px, 1.8vw, 20px)</span>;<br><br>
+<span class="cmt">/* Stats numbers */</span><br>
+font-size: <span class="str">clamp(32px, 4vw, 52px)</span>;
+      </code></div>
+    </div>
+
+    <!-- Copy tone -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Copy Patterns</div>
+      <div class="br-anim-card__desc">How BR headlines, CTAs, and positioning copy are structured.</div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--kraft); margin-bottom: 8px;">Headlines — Outcome-Focused</div>
+          <div style="font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--smoke);">Precision fit. <span style="color: var(--kraft);">Dialed in</span> mindset.</div>
+        </div>
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aqua); margin-bottom: 8px;">CTAs — Emotional Hook Questions</div>
+          <div style="font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--smoke);">Ready to make your brand <span style="color: var(--kraft);">unforgettable?</span></div>
+        </div>
+        <div style="padding: 16px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(245,243,243,0.06);">
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,243,243,0.3); margin-bottom: 8px;">Positioning — Premium Scarcity</div>
+          <div style="font-size: 14px; font-weight: 400; color: rgba(245,243,243,0.6); line-height: 1.6;">We take on a <span style="color: var(--kraft);">limited number</span> of new partners each quarter.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editorial don'ts -->
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Editorial Rules</div>
+      <div class="br-anim-card__desc">Formatting rules that apply to all BR copy.</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Left-align body text — never justified</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Sentence case for body, title case for headlines</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Oxford comma in all lists</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Em dashes (—) for parentheticals, no spaces</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Never underline unless it's a hyperlink</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Never use all-caps for body text (eyebrows/labels only)</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.6);">Never use justified text alignment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="br-section__divider" style="max-width: 1400px; margin: 0 auto;"></div>
+
+<!-- ======================== 13. BRAND VOICE ======================== -->
+<section class="br-section" id="brand-voice">
+  <div class="br-section__header">
+    <div class="br-section__number">13</div>
+    <h2 class="br-section__title">Brand <span style="color: var(--kraft)">Voice</span></h2>
+    <p class="br-section__desc">How BR speaks. Bold, precise, emotionally resonant — never corporate, never safe.</p>
+  </div>
+
+  <!-- Tone spectrum -->
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">Tone Spectrum</div>
+    <div class="br-sub-header__desc">Six principles that define how every piece of BR copy should feel.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 48px;">
+    <div style="padding: 24px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 20px; margin-bottom: 12px; color: var(--kraft);">&#9670;</div>
+      <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Bold & Unafraid</div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.4); line-height: 1.6;">Push boundaries and challenge the ordinary. Strive for lasting impact. Never play it safe when the moment calls for a move.</div>
+    </div>
+    <div style="padding: 24px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 20px; margin-bottom: 12px; color: var(--aqua);">&#9670;</div>
+      <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Confident & Witty</div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.4); line-height: 1.6;">Blend humor with authority. Sharp, not snarky. Clever, not trying-too-hard. The reader should feel like they're in on it.</div>
+    </div>
+    <div style="padding: 24px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 20px; margin-bottom: 12px; color: var(--kraft);">&#9670;</div>
+      <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Clear & Purposeful</div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.4); line-height: 1.6;">Every word earns its place. No filler, no fluff, no corporate jargon. If a sentence doesn't move the reader forward, cut it.</div>
+    </div>
+    <div style="padding: 24px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 20px; margin-bottom: 12px; color: var(--aqua);">&#9670;</div>
+      <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Creative & Original</div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.4); line-height: 1.6;">Favor the inspired idea over the predictable one. If it sounds like everyone else, start over.</div>
+    </div>
+    <div style="padding: 24px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 20px; margin-bottom: 12px; color: var(--kraft);">&#9670;</div>
+      <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Intelligent & Accessible</div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.4); line-height: 1.6;">Sophisticated but never exclusionary. Treat the audience as thoughtful people who deserve respect, not jargon.</div>
+    </div>
+    <div style="padding: 24px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 20px; margin-bottom: 12px; color: var(--aqua);">&#9670;</div>
+      <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Friendly & Professional</div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.4); line-height: 1.6;">Warm without being casual. Approachable without being ingratiating. We're partners, not vendors.</div>
+    </div>
+  </div>
+
+  <!-- Headline formulas -->
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">Headline Formulas</div>
+    <div class="br-sub-header__desc">Three patterns that drive BR headlines. Each serves a different moment.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 48px;">
+    <div style="padding: 32px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kraft); margin-bottom: 16px;">Formula 1 — Outcome Statement</div>
+      <div style="font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 12px;">Precision fit. <span style="color: var(--kraft);">Dialed in</span> mindset.</div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.3); line-height: 1.6;">Short. Punchy. Outcome-focused. Usually two fragments. Kraft the emotional peak. Works for hero sections and case study headers.</div>
+    </div>
+    <div style="padding: 32px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aqua); margin-bottom: 16px;">Formula 2 — Emotional Hook Question</div>
+      <div style="font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 12px;">Ready to make your brand <span style="color: var(--kraft);">unforgettable?</span></div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.3); line-height: 1.6;">Question that assumes ambition. Kraft the payoff word. Always a question the reader already wants to answer "yes" to. Works for CTA sections.</div>
+    </div>
+    <div style="padding: 32px; background: var(--raisin); border-radius: 12px; border: 1px solid rgba(245,243,243,0.06);">
+      <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,243,0.3); margin-bottom: 16px;">Formula 3 — Tension Statement</div>
+      <div style="font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 12px;">The future satisfies <span style="color: var(--kraft);">no one</span></div>
+      <div style="font-size: 12px; color: rgba(245,243,243,0.3); line-height: 1.6;">Sets up a tension or contradiction. Kraft lands on the unexpected word. Makes the reader pause. Works for thought leadership and brand manifesto moments.</div>
+    </div>
+  </div>
+
+  <!-- Positioning language -->
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">Positioning Language</div>
+    <div class="br-sub-header__desc">How BR talks about itself — premium, scarce, partnership-oriented.</div>
+  </div>
+
+  <div class="br-comp-grid" style="margin-bottom: 48px;">
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Premium Scarcity</div>
+      <div class="br-anim-card__desc">Position as selective, not available. We choose partners, not accept clients.</div>
+      <div style="padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px; margin-top: 8px; border: 1px solid rgba(245,243,243,0.06);">
+        <div style="font-size: 15px; color: rgba(245,243,243,0.7); line-height: 1.6; font-style: italic;">"We take on a <span style="color: var(--kraft);">limited number</span> of new partners each quarter."</div>
+      </div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Partnership Framing</div>
+      <div class="br-anim-card__desc">Never "vendor" or "agency." Always partner, collaborator, extension of their team.</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"Your strategic partner"</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"An extension of your team"</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"Our agency services"</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"We are a vendor of..."</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Emotionally Resonant</div>
+      <div class="br-anim-card__desc">Root everything in ROE (Return on Emotion). Decisions are emotional — speak to that.</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"Crafting bold, emotionally resonant solutions"</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: var(--aqua); font-size: 14px;">&#10003;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"Connections that inspire action"</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"Delivering marketing solutions"</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span style="color: #e74c3c; font-size: 14px;">&#10007;</span>
+          <span style="font-size: 13px; color: rgba(245,243,243,0.5);">"Increasing brand awareness"</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Words We Use</div>
+      <div class="br-anim-card__desc">Language that sounds like BR — and language that doesn't.</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px;">
+        <div>
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aqua); margin-bottom: 10px;">BR Words</div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.5); line-height: 2;">
+            ignite<br>craft<br>elevate<br>bold<br>resonate<br>disrupt<br>transform<br>unforgettable
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #e74c3c; margin-bottom: 10px;">Never Use</div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.35); line-height: 2;">
+            leverage<br>synergy<br>utilize<br>optimize<br>stakeholder<br>deliverables<br>scalable<br>best-in-class
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Localization -->
+  <div class="br-sub-header">
+    <div class="br-sub-header__title">Localization</div>
+    <div class="br-sub-header__desc">BR is global — language adapts to audience.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div class="br-anim-card">
+      <div class="br-anim-card__title">Spelling & Measurement</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div>
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--kraft); margin-bottom: 10px;">Global / Default</div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.45); line-height: 1.8;">
+            U.S. English spelling<br>
+            Imperial + metric (imperial first)<br>
+            Avoid local idioms or slang
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aqua); margin-bottom: 10px;">Regional / Client-Facing</div>
+          <div style="font-size: 12px; color: rgba(245,243,243,0.45); line-height: 1.8;">
+            Local spelling conventions<br>
+            Local measurement system<br>
+            UK/Europe: metric (miles excepted)<br>
+            US: imperial only
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Still expanding banner -->
+  <div class="br-coming-soon" style="margin-top: 48px; padding: 48px 32px;">
     <div class="br-coming-soon__orbs">
-      <div class="br-coming-soon__orb" style="width: 500px; height: 500px; top: -150px; left: -150px; background: radial-gradient(circle, rgba(55,85,66,0.4) 0%, transparent 70%); filter: blur(100px); -webkit-filter: blur(100px); animation: br-float-1 12s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
-      <div class="br-coming-soon__orb" style="width: 400px; height: 400px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(196,154,108,0.12) 0%, transparent 70%); filter: blur(100px); -webkit-filter: blur(100px); animation: br-float-2 14s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
-      <div class="br-coming-soon__orb" style="width: 300px; height: 300px; top: 20%; right: 10%; background: radial-gradient(circle, rgba(108,202,152,0.1) 0%, transparent 70%); filter: blur(80px); -webkit-filter: blur(80px); animation: br-float-3 16s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
+      <div class="br-coming-soon__orb" style="width: 300px; height: 300px; top: -80px; left: -80px; background: radial-gradient(circle, rgba(55,85,66,0.3) 0%, transparent 70%); filter: blur(80px); -webkit-filter: blur(80px); animation: br-float-1 12s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
+      <div class="br-coming-soon__orb" style="width: 200px; height: 200px; bottom: -60px; right: -60px; background: radial-gradient(circle, rgba(196,154,108,0.1) 0%, transparent 70%); filter: blur(60px); -webkit-filter: blur(60px); animation: br-float-2 14s ease-in-out infinite; will-change: transform; transform: translateZ(0);"></div>
     </div>
-
-    <div class="br-coming-soon__badge">Coming Soon</div>
-    <h3 class="br-coming-soon__title">The voice behind the <span style="color: var(--kraft)">visual</span></h3>
-    <p class="br-coming-soon__desc">Brand standards define how we look. Brand voice defines how we sound. We're codifying the principles behind every headline, paragraph, and CTA across BR properties.</p>
-
-    <div class="br-coming-soon__preview">
-      <div class="br-coming-soon__card">
-        <div class="br-coming-soon__card-icon" style="color: var(--kraft);">&#9672;</div>
-        <div class="br-coming-soon__card-title">Tone Spectrum</div>
-        <div class="br-coming-soon__card-desc">When to be authoritative vs. conversational. How warmth scales with audience and context.</div>
-      </div>
-      <div class="br-coming-soon__card">
-        <div class="br-coming-soon__card-icon" style="color: var(--aqua);">&#9671;</div>
-        <div class="br-coming-soon__card-title">Language Patterns</div>
-        <div class="br-coming-soon__card-desc">Sentence rhythm, power words, prohibited cliches. The cadence that makes BR copy feel precise.</div>
-      </div>
-      <div class="br-coming-soon__card">
-        <div class="br-coming-soon__card-icon" style="color: var(--smoke);">&#9670;</div>
-        <div class="br-coming-soon__card-title">Headline Formulas</div>
-        <div class="br-coming-soon__card-desc">Proven structures for hero copy, CTAs, case study titles, and email subject lines.</div>
-      </div>
-      <div class="br-coming-soon__card">
-        <div class="br-coming-soon__card-icon" style="color: var(--kraft);">&#9673;</div>
-        <div class="br-coming-soon__card-title">Do / Don't Library</div>
-        <div class="br-coming-soon__card-desc">Real before/after examples from BR projects showing voice principles in action.</div>
-      </div>
-    </div>
-
+    <div class="br-coming-soon__badge">Expanding</div>
+    <h3 class="br-coming-soon__title" style="font-size: clamp(20px, 2.5vw, 32px);">More voice guidelines <span style="color: var(--kraft)">in progress</span></h3>
+    <p class="br-coming-soon__desc" style="margin-bottom: 0;">Do/Don't library with real before/after examples, email subject line formulas, and case study narrative structures are being codified from live BR projects.</p>
   </div>
 </section>
 
@@ -2010,7 +2530,7 @@ function handleNotify() {
 }
 
 // ---- SCROLL ----
-const sections = ['colors','typography','spacing','animation','components','kraft-rule','responsive','email','code','brand-voice'];
+const sections = ['colors','typography','spacing','animation','components','kraft-rule','responsive','email','code','photography','accessibility','editorial','brand-voice'];
 
 window.addEventListener('scroll', () => {
   const scrollTop = window.scrollY;
